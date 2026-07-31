@@ -46,6 +46,7 @@ All outputs are written to `paper_repro_outputs/`:
 
 - `paper_repro_outputs/tables/` — CSV tables for every reported statistic
 - `paper_repro_outputs/figures/` — SVG figures
+- `paper_repro_outputs/supplement/` — supplementary materials as US-letter PDF pages (Supplemental Table 1, Supplemental Figures 1-6)
 
 ## Analysis Overview
 
@@ -64,6 +65,7 @@ The notebook proceeds in order through:
 11. Strict-sample sensitivity for the selected questionnaire correlations
 12. Power and sample-size estimates for Pearson correlations
 13. A summary table of key result checkpoints
+14. Supplementary materials, saved as US-letter PDF pages: Supplemental Table 1 (strategy x test-number ANOVA per task metric), Supplemental Figure 1 (performance by reported strategy), and Supplemental Figures 2-6 (all questionnaire subscale by task metric correlations, split by instrument)
 
 ### Confidence Scoring
 

@@ -19,6 +19,7 @@ import pingouin as pg
 import seaborn as sns
 import statsmodels.formula.api as smf
 from scipy.stats import linregress, nct, norm, pearsonr, t, ttest_rel
+from statsmodels.stats.anova import anova_lm
 from statsmodels.stats.multitest import multipletests
 
 from analysisfunctions import (
@@ -61,6 +62,42 @@ METRIC_LABELS = {
     "calibration_converted_score": "Converted Calibration",
 }
 
+STRATEGY_RESPONSE_LABELS = {
+    "I paid attention to a SUBSET OF COMPONENTS and ignored the others": "Subset of components",
+    "I paid attention to a ALL COMPONENTS": "All components",
+    "I DID NOT HAVE a strategy": "No strategy",
+    "I WROTE DOWN the components and classifications": "Wrote down",
+    "I CAREFULLY EVALUATED the options": "Carefully evaluated",
+    "I trusted MY GUT": "Trusted gut",
+    "I chose RANDOMLY": "Chose randomly",
+}
+
+QUESTIONNAIRE_INSTRUMENT_GROUPS = {
+    "supplemental_figure_2": ["bfi10_extraversion", "bfi10_agreeableness", "bfi10_conscientiousness"],
+    "supplemental_figure_3": ["bfi10_neuroticism", "bfi10_openness"],
+    "supplemental_figure_4": ["bapq_aloof", "bapq_pragmatic_language", "bapq_rigid"],
+    "supplemental_figure_5": ["asrs_inattention", "asrs_hyperactivity_impulsivity"],
+    "supplemental_figure_6": ["phq9_na"],
+}
+
+SUBSCALE_LABELS = {
+    "bfi10_extraversion": "BFI-10: Extraversion",
+    "bfi10_agreeableness": "BFI-10: Agreeableness",
+    "bfi10_conscientiousness": "BFI-10: Conscientiousness",
+    "bfi10_neuroticism": "BFI-10: Neuroticism",
+    "bfi10_openness": "BFI-10: Openness",
+    "bapq_aloof": "BAPQ: Aloof",
+    "bapq_pragmatic_language": "BAPQ: PragLang",
+    "bapq_rigid": "BAPQ: Rigidity",
+    "asrs_inattention": "ASRS: Inattention",
+    "asrs_hyperactivity_impulsivity": "ASRS: Hyperactivity/Impulsivity",
+    "phq9_na": "PHQ9",
+}
+
+# US letter page, portrait, in inches. Supplemental PDFs are saved at exactly
+# this size so each file drops into the supplement as a full page.
+LETTER_PORTRAIT = (8.5, 11)
+
 PROTOTYPE_CODES = pd.DataFrame(
     {
         "prototype": ["A", "B", "A", "B"],
@@ -93,6 +130,7 @@ def ensure_output_dirs(base_dir: str | Path = "paper_repro_outputs") -> dict[str
         "base": base,
         "figures": base / "figures",
         "tables": base / "tables",
+        "supplement": base / "supplement",
     }
     for path in paths.values():
         path.mkdir(parents=True, exist_ok=True)
@@ -665,6 +703,220 @@ def plot_questionnaire_covariance(corr: pd.DataFrame, path: str | Path):
     fig.tight_layout()
     fig.savefig(path, dpi=300, bbox_inches="tight")
     return fig
+
+
+def strategy_metric_table(data: PaperData, task_summaries: pd.DataFrame) -> pd.DataFrame:
+    """One row per subject and session with short-labeled strategy responses and task metrics."""
+    strategy = data.completer_task_rows[
+        ["subject_id", "strategy_prompt", "strategy_response", "test"]
+    ].drop_duplicates()
+    wide = strategy.pivot(
+        index=["subject_id", "test"], columns="strategy_prompt", values="strategy_response"
+    ).reset_index()
+    wide["classification_strategy"] = wide["strategy_classification"].map(STRATEGY_RESPONSE_LABELS)
+    wide["decision_strategy"] = wide["decision_process"].map(STRATEGY_RESPONSE_LABELS)
+    return wide[["subject_id", "test", "classification_strategy", "decision_strategy"]].merge(
+        task_summaries, on=["subject_id", "test"]
+    )
+
+
+def strategy_metric_anova(
+    strategy_metrics: pd.DataFrame,
+    metrics: Iterable[str] = TASK_METRICS,
+    exclude_singletons: Iterable[str] = ("Wrote down",),
+) -> pd.DataFrame:
+    """Type II ANOVA per task metric with classification strategy, decision strategy,
+    test number, and all interactions as categorical predictors (Supplemental Table 1).
+
+    Responses given by a single participant-session (by default the one "Wrote down"
+    report) are excluded so the factorial design is estimable.
+    """
+    df = strategy_metrics.loc[
+        ~strategy_metrics["classification_strategy"].isin(set(exclude_singletons))
+        & ~strategy_metrics["decision_strategy"].isin(set(exclude_singletons))
+    ].copy()
+    term_labels = {
+        "C(classification_strategy)": "Classification strategy",
+        "C(decision_strategy)": "Decision strategy",
+        "C(test)": "Test number",
+        "C(classification_strategy):C(decision_strategy)": "Classification x Decision",
+        "C(classification_strategy):C(test)": "Classification x Test",
+        "C(decision_strategy):C(test)": "Decision x Test",
+        "C(classification_strategy):C(decision_strategy):C(test)": "Classification x Decision x Test",
+        "Residual": "Residual",
+    }
+    rows = []
+    for metric in metrics:
+        model = smf.ols(
+            f"{metric} ~ C(classification_strategy) * C(decision_strategy) * C(test)", data=df
+        ).fit()
+        table = anova_lm(model, typ=2)
+        for term, term_row in table.iterrows():
+            rows.append(
+                {
+                    "metric": metric,
+                    "metric_label": METRIC_LABELS[metric],
+                    "term": term_labels.get(term, term),
+                    "df": term_row["df"],
+                    "sum_sq": term_row["sum_sq"],
+                    "F": term_row["F"],
+                    "p": term_row["PR(>F)"],
+                }
+            )
+    result = pd.DataFrame(rows)
+    result["significant"] = result["p"] < 0.05
+    return result
+
+
+def save_supplemental_table_1_pdf(anova_table: pd.DataFrame, path: str | Path, n_rows: int):
+    """Render the strategy ANOVA results as a single US-letter PDF page."""
+    fig = plt.figure(figsize=LETTER_PORTRAIT)
+    ax = fig.add_axes([0.07, 0.055, 0.86, 0.795])
+    ax.axis("off")
+
+    cell_rows = []
+    for metric_label, metric_df in anova_table.groupby("metric_label", sort=False):
+        for i, (_, row) in enumerate(metric_df.iterrows()):
+            f_txt = "" if np.isnan(row["F"]) else f"{row['F']:.2f}"
+            p_txt = "" if np.isnan(row["p"]) else (f"{row['p']:.3f}" if row["p"] >= 0.001 else f"{row['p']:.1e}")
+            if p_txt and row["p"] < 0.05:
+                p_txt += " *"
+            cell_rows.append(
+                [metric_label if i == 0 else "", row["term"], f"{row['df']:.0f}", f"{row['sum_sq']:.4f}", f_txt, p_txt]
+            )
+
+    table = ax.table(
+        cellText=cell_rows,
+        colLabels=["Task metric", "Term", "df", "Sum sq", "F", "P"],
+        colWidths=[0.18, 0.34, 0.08, 0.15, 0.11, 0.14],
+        cellLoc="left",
+        loc="upper center",
+    )
+    table.auto_set_font_size(False)
+    table.set_fontsize(7)
+    table.scale(1, 0.98)
+    for (row_i, _), cell in table.get_celld().items():
+        cell.set_edgecolor("0.8")
+        if row_i == 0:
+            cell.set_text_props(fontweight="bold")
+            cell.set_facecolor("0.93")
+
+    fig.text(0.07, 0.945, "Supplemental Table 1", fontsize=13, fontweight="bold")
+    fig.text(
+        0.07,
+        0.925,
+        "Strategy, test number, and task metrics. Type II ANOVA from OLS models fit separately for each\n"
+        "task metric, with self-reported classification strategy, decision strategy, test number, and all\n"
+        "interactions as categorical predictors.",
+        fontsize=9,
+        va="top",
+    )
+    fig.text(
+        0.07,
+        0.038,
+        f"N={n_rows} participant-sessions from the 80 completers. The single 'Wrote down' classification report\n"
+        "was excluded so the factorial design was estimable. * P < .05, uncorrected.",
+        fontsize=8,
+        va="top",
+        color="0.35",
+    )
+    fig.savefig(path)
+    return fig
+
+
+def plot_supplemental_figure_1(strategy_metrics: pd.DataFrame, path: str | Path):
+    """Accuracy and outcome variance by reported strategy and session (Supplemental Figure 1)."""
+    fig, axes = plt.subplots(2, 2, figsize=LETTER_PORTRAIT, gridspec_kw={
+        "left": 0.09, "right": 0.97, "top": 0.85, "bottom": 0.17, "hspace": 0.5, "wspace": 0.25,
+    })
+    plot_df = strategy_metrics.copy()
+    plot_df["test_label"] = plot_df["test"].map(TEST_LABELS)
+    panels = [
+        (axes[0, 0], "classification_strategy", "accuracy", "Accuracy by classification strategy", False),
+        (axes[0, 1], "decision_strategy", "accuracy", "Accuracy by decision strategy", False),
+        (axes[1, 0], "classification_strategy", "outcome_variance", "Outcome variance by classification strategy", True),
+        (axes[1, 1], "decision_strategy", "outcome_variance", "Outcome variance by decision strategy", True),
+    ]
+    for ax, strategy_col, metric, title, show_legend in panels:
+        sns.barplot(data=plot_df, x="test_label", y=metric, hue=strategy_col, ax=ax)
+        ax.set_title(title, fontsize=10)
+        ax.set_xlabel("")
+        ax.set_ylabel(METRIC_LABELS[metric])
+        ax.tick_params(axis="x", rotation=20, labelsize=8)
+        if show_legend:
+            ax.legend(fontsize=7, title=None, loc="upper center", bbox_to_anchor=(0.5, -0.28), ncol=2)
+        else:
+            ax.legend_.remove()
+    sns.despine()
+    fig.suptitle("Supplemental Figure 1", x=0.09, y=0.94, ha="left", fontsize=13, fontweight="bold")
+    fig.text(
+        0.09,
+        0.915,
+        "Task performance by self-reported strategy. Bars show the mean across participants reporting each\n"
+        "strategy in each session; error bars show 95% confidence intervals.",
+        fontsize=9,
+        va="top",
+    )
+    fig.savefig(path)
+    return fig
+
+
+def plot_subscale_correlation_figures(
+    questionnaire_subscales: pd.DataFrame,
+    task_summaries: pd.DataFrame,
+    out_dir: str | Path,
+    figure_numbers_start: int = 2,
+) -> dict[str, Path]:
+    """Scatter panels of every questionnaire subscale against every mean task metric,
+    split by instrument into letter-page PDFs (Supplemental Figures 2-6)."""
+    out_dir = Path(out_dir)
+    task_mean = mean_task_summaries(task_summaries)
+    joint = pd.merge(questionnaire_subscales, task_mean, on="subject_id", how="inner")
+
+    paths: dict[str, Path] = {}
+    for fig_offset, (fig_name, subscales) in enumerate(QUESTIONNAIRE_INSTRUMENT_GROUPS.items()):
+        fig, axes = plt.subplots(
+            len(TASK_METRICS), 3, figsize=LETTER_PORTRAIT, gridspec_kw={
+                "left": 0.09, "right": 0.97, "top": 0.88, "bottom": 0.05, "hspace": 0.55, "wspace": 0.35,
+            },
+        )
+        for col in range(3):
+            for row in range(len(TASK_METRICS)):
+                ax = axes[row, col]
+                if col >= len(subscales):
+                    ax.axis("off")
+                    continue
+                subscale = subscales[col]
+                metric = TASK_METRICS[row]
+                subscale_df = joint.loc[joint["subscale"] == subscale]
+                r, p = pearsonr(subscale_df["score"], subscale_df[metric])
+                sns.regplot(
+                    data=subscale_df, x="score", y=metric, ax=ax,
+                    scatter_kws={"s": 8, "alpha": 0.55}, line_kws={"linewidth": 1.2},
+                )
+                p_txt = f"{p:.3f}" if p >= 0.001 else f"{p:.1e}"
+                ax.set_title(f"r={r:.2f}, p={p_txt}", fontsize=8)
+                ax.set_xlabel(SUBSCALE_LABELS[subscale] if row == len(TASK_METRICS) - 1 else "", fontsize=8)
+                ax.set_ylabel(METRIC_LABELS[metric] if col == 0 else "", fontsize=8)
+                ax.tick_params(labelsize=7)
+        sns.despine()
+        figure_number = figure_numbers_start + fig_offset
+        subscale_names = ", ".join(SUBSCALE_LABELS[s] for s in subscales)
+        fig.suptitle(f"Supplemental Figure {figure_number}", x=0.09, y=0.955, ha="left", fontsize=13, fontweight="bold")
+        fig.text(
+            0.09,
+            0.935,
+            f"{subscale_names} versus task metrics.\n"
+            f"Each point is one of the {task_mean.shape[0]} completers; task metrics are averaged across the three sessions.\n"
+            "r and p are uncorrected Pearson correlations.",
+            fontsize=9,
+            va="top",
+        )
+        path = out_dir / f"{fig_name}.pdf"
+        fig.savefig(path)
+        paths[fig_name] = path
+        plt.close(fig)
+    return paths
 
 
 def plot_questionnaire_task_heatmap(correlations: pd.DataFrame, path: str | Path):
