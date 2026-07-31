@@ -1,0 +1,4 @@
+test,test_label,n_subjects,n_rows,n_test_trials_per_subject,n_unique_test_trials_per_subject
+0,Initial Test,80,23680,168,42
+1,1 Week Retest,80,23680,168,42
+2,Final Retest,80,23680,168,42

@@ -1,0 +1,7 @@
+definition,n
+All three sessions completed,80
+Accuracy > .5 in all three test sessions,51
+Accuracy >= .5 in all three test sessions,56
+Accuracy > .5 in at least two test sessions,73
+Mean test accuracy > .5 across sessions,73
+Less stringent sensitivity rule: accuracy > .55 in at least two sessions,64

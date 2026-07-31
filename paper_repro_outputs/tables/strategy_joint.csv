@@ -1,0 +1,10 @@
+test,test_label,decision_process,I DID NOT HAVE a strategy,I paid attention to a ALL COMPONENTS,I paid attention to a SUBSET OF COMPONENTS and ignored the others,I WROTE DOWN the components and classifications
+0,Initial Test,I CAREFULLY EVALUATED the options,1,12,34,
+0,Initial Test,I chose RANDOMLY,4,0,3,
+0,Initial Test,I trusted MY GUT,1,3,22,
+1,1 Week Retest,I CAREFULLY EVALUATED the options,2,14,35,
+1,1 Week Retest,I chose RANDOMLY,3,0,2,
+1,1 Week Retest,I trusted MY GUT,2,2,20,
+2,Final Retest,I CAREFULLY EVALUATED the options,2,16,39,1.0
+2,Final Retest,I chose RANDOMLY,1,1,0,0.0
+2,Final Retest,I trusted MY GUT,3,4,13,0.0

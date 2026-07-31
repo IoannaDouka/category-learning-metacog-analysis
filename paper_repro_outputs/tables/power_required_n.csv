@@ -1,0 +1,25 @@
+target_r,power,alpha,correction_family,required_n_fisher_z,required_n_nct,family
+0.2,0.8,0.05,single planned test,194,193,66 mean subscale-task tests
+0.2,0.8,0.0007575757575757576,"conservative corrected threshold, m=66",435,433,66 mean subscale-task tests
+0.2,0.9,0.05,single planned test,259,257,66 mean subscale-task tests
+0.2,0.9,0.0007575757575757576,"conservative corrected threshold, m=66",529,527,66 mean subscale-task tests
+0.25,0.8,0.05,single planned test,124,122,66 mean subscale-task tests
+0.25,0.8,0.0007575757575757576,"conservative corrected threshold, m=66",275,274,66 mean subscale-task tests
+0.25,0.9,0.05,single planned test,165,162,66 mean subscale-task tests
+0.25,0.9,0.0007575757575757576,"conservative corrected threshold, m=66",335,332,66 mean subscale-task tests
+0.3,0.8,0.05,single planned test,85,84,66 mean subscale-task tests
+0.3,0.8,0.0007575757575757576,"conservative corrected threshold, m=66",188,187,66 mean subscale-task tests
+0.3,0.9,0.05,single planned test,113,111,66 mean subscale-task tests
+0.3,0.9,0.0007575757575757576,"conservative corrected threshold, m=66",229,227,66 mean subscale-task tests
+0.2,0.8,0.05,single planned test,194,193,198 session-wise subscale-task tests
+0.2,0.8,0.0002525252525252525,"conservative corrected threshold, m=198",496,495,198 session-wise subscale-task tests
+0.2,0.9,0.05,single planned test,259,257,198 session-wise subscale-task tests
+0.2,0.9,0.0002525252525252525,"conservative corrected threshold, m=198",598,595,198 session-wise subscale-task tests
+0.25,0.8,0.05,single planned test,124,122,198 session-wise subscale-task tests
+0.25,0.8,0.0002525252525252525,"conservative corrected threshold, m=198",314,313,198 session-wise subscale-task tests
+0.25,0.9,0.05,single planned test,165,162,198 session-wise subscale-task tests
+0.25,0.9,0.0002525252525252525,"conservative corrected threshold, m=198",378,375,198 session-wise subscale-task tests
+0.3,0.8,0.05,single planned test,85,84,198 session-wise subscale-task tests
+0.3,0.8,0.0002525252525252525,"conservative corrected threshold, m=198",215,214,198 session-wise subscale-task tests
+0.3,0.9,0.05,single planned test,113,111,198 session-wise subscale-task tests
+0.3,0.9,0.0002525252525252525,"conservative corrected threshold, m=198",258,256,198 session-wise subscale-task tests

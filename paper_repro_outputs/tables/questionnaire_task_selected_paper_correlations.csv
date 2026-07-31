@@ -1,0 +1,6 @@
+subscale,metric,metric_label,n,r,p_uncorrected,p_bonferroni,p_fdr_bh,significant_uncorrected,significant_bonferroni,significant_fdr_bh
+bapq_aloof,resolution,Resolution,80,0.3046059726474404,0.00601047212324711,0.3966911601343093,0.3966911601343092,True,False,False
+bfi10_agreeableness,resolution,Resolution,80,-0.2777188902992671,0.012625118504135661,0.8332578212729537,0.41662891063647683,True,False,False
+bfi10_extraversion,outcome_variance,Outcome Variance,80,0.24396871728790065,0.029194697561323542,1.0,0.4670159231732033,True,False,False
+bfi10_extraversion,brier_score,Brier Score,80,0.2359899292104921,0.035082778278583096,1.0,0.4670159231732033,True,False,False
+bfi10_extraversion,resolution,Resolution,80,-0.23193920080134928,0.0384337117289624,1.0,0.4670159231732033,True,False,False

@@ -1,0 +1,13 @@
+target_r,n,alpha,correction_family,power_nct,family
+0.2,80,0.05,single planned test,0.42890650045040757,66 mean subscale-task tests
+0.2,80,0.0007575757575757576,"conservative corrected threshold, m=66",0.05158751321582534,66 mean subscale-task tests
+0.25,80,0.05,single planned test,0.6149630630513071,66 mean subscale-task tests
+0.25,80,0.0007575757575757576,"conservative corrected threshold, m=66",0.12111016556629944,66 mean subscale-task tests
+0.3,80,0.05,single planned test,0.7832316437057545,66 mean subscale-task tests
+0.3,80,0.0007575757575757576,"conservative corrected threshold, m=66",0.24492350453838774,66 mean subscale-task tests
+0.2,80,0.05,single planned test,0.42890650045040757,198 session-wise subscale-task tests
+0.2,80,0.0002525252525252525,"conservative corrected threshold, m=198",0.026628658794109684,198 session-wise subscale-task tests
+0.25,80,0.05,single planned test,0.6149630630513071,198 session-wise subscale-task tests
+0.25,80,0.0002525252525252525,"conservative corrected threshold, m=198",0.07001150954863743,198 session-wise subscale-task tests
+0.3,80,0.05,single planned test,0.7832316437057545,198 session-wise subscale-task tests
+0.3,80,0.0002525252525252525,"conservative corrected threshold, m=198",0.15864688685367434,198 session-wise subscale-task tests
