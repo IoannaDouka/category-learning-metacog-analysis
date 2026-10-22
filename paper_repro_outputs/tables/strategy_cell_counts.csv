@@ -1,0 +1,28 @@
+classification_strategy,decision_strategy,test,n
+All components,Carefully evaluated,0,12
+All components,Carefully evaluated,1,14
+All components,Carefully evaluated,2,16
+All components,Chose randomly,0,0
+All components,Chose randomly,1,0
+All components,Chose randomly,2,1
+All components,Trusted gut,0,3
+All components,Trusted gut,1,2
+All components,Trusted gut,2,4
+No strategy,Carefully evaluated,0,1
+No strategy,Carefully evaluated,1,2
+No strategy,Carefully evaluated,2,2
+No strategy,Chose randomly,0,4
+No strategy,Chose randomly,1,3
+No strategy,Chose randomly,2,1
+No strategy,Trusted gut,0,1
+No strategy,Trusted gut,1,2
+No strategy,Trusted gut,2,3
+Subset of components,Carefully evaluated,0,34
+Subset of components,Carefully evaluated,1,35
+Subset of components,Carefully evaluated,2,39
+Subset of components,Chose randomly,0,3
+Subset of components,Chose randomly,1,2
+Subset of components,Chose randomly,2,0
+Subset of components,Trusted gut,0,22
+Subset of components,Trusted gut,1,20
+Subset of components,Trusted gut,2,13

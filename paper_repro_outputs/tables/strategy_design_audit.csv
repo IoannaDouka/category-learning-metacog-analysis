@@ -1,0 +1,4 @@
+model,formula,n_rows,n_subjects,n_excluded_rows,n_columns,rank,rank_deficiency,full_rank,condition_number,possible_cells,observed_cells
+additive,C(classification_strategy) + C(decision_strategy) + C(test),239,80,1,7,7,0,True,7.996980472633494,27,24
+two_way,(C(classification_strategy) + C(decision_strategy) + C(test)) ** 2,239,80,1,19,19,0,True,66.97460405374422,27,24
+full_factorial,C(classification_strategy) * C(decision_strategy) * C(test),239,80,1,27,24,3,False,1.0349852736865983e+32,27,24

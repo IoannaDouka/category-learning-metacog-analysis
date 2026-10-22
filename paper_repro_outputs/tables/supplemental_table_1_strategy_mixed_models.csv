@@ -1,0 +1,19 @@
+model,metric,metric_label,term,df,chi2,p,p_fdr_bh,fdr_family_size,significant_uncorrected,significant_fdr_bh
+additive,accuracy,Accuracy,Classification strategy,2,11.529929241732221,0.0031355062933156735,0.007890572514358556,18,True,True
+additive,accuracy,Accuracy,Decision strategy,2,16.7282342021221,0.00023308273046156918,0.0020977445741541226,18,True,True
+additive,accuracy,Accuracy,Session,2,10.692704454697106,0.004765502803249211,0.009531005606498421,18,True,True
+additive,brier_score,Brier Score,Classification strategy,2,6.852013400357998,0.032516530110029265,0.0487747951650439,18,True,True
+additive,brier_score,Brier Score,Decision strategy,2,4.915313193900609,0.08563539425995176,0.11167843779361378,18,False,False
+additive,brier_score,Brier Score,Session,2,15.31888840686619,0.0004715694346458755,0.002829416607875253,18,True,True
+additive,calibration,Calibration,Classification strategy,2,3.4377220609742567,0.17927021498577936,0.2016789918590018,18,False,False
+additive,calibration,Calibration,Decision strategy,2,0.9371835584188054,0.6258830294786287,0.6258830294786287,18,False,False
+additive,calibration,Calibration,Session,2,11.622555000774103,0.0029936032991208423,0.007890572514358556,18,True,True
+additive,resolution,Resolution,Classification strategy,2,4.886892113169032,0.08686100717281071,0.11167843779361378,18,False,False
+additive,resolution,Resolution,Decision strategy,2,2.1296474679735584,0.3447886239274377,0.36507030768787524,18,False,False
+additive,resolution,Resolution,Session,2,19.809063080307357,4.994782785739645e-05,0.0008990609014331362,18,True,True
+additive,outcome_variance,Outcome Variance,Classification strategy,2,11.306033601901097,0.0035069211174926914,0.007890572514358556,18,True,True
+additive,outcome_variance,Outcome Variance,Decision strategy,2,14.396487844474475,0.0007478980229509622,0.00336554110327933,18,True,True
+additive,outcome_variance,Outcome Variance,Session,2,3.7257034996613148,0.15522932337146547,0.18627518804575857,18,False,False
+additive,rewarded_score,Rewarded Score,Classification strategy,2,7.3635715273532,0.025177972756448615,0.04120031905600682,18,True,True
+additive,rewarded_score,Rewarded Score,Decision strategy,2,8.508061773112605,0.014206852127720018,0.02557233382989603,18,True,True
+additive,rewarded_score,Rewarded Score,Session,2,12.178064222606912,0.002267602639965652,0.007890572514358556,18,True,True

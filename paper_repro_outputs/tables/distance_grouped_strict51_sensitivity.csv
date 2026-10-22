@@ -1,766 +1,766 @@
-subject_id,distance,correct,test,test_label
-8,0,1.0,0,Initial Test
-8,1,0.8571428571428571,0,Initial Test
-8,2,0.8125,0,Initial Test
-8,3,0.75,0,Initial Test
-8,4,0.7857142857142857,0,Initial Test
-12,0,0.75,0,Initial Test
-12,1,1.0,0,Initial Test
-12,2,0.9375,0,Initial Test
-12,3,0.8125,0,Initial Test
-12,4,0.8571428571428571,0,Initial Test
-20,0,1.0,0,Initial Test
-20,1,0.9285714285714286,0,Initial Test
-20,2,0.75,0,Initial Test
-20,3,0.75,0,Initial Test
-20,4,0.7142857142857143,0,Initial Test
-23,0,1.0,0,Initial Test
-23,1,0.9285714285714286,0,Initial Test
-23,2,0.75,0,Initial Test
-23,3,0.6875,0,Initial Test
-23,4,0.42857142857142855,0,Initial Test
-24,0,1.0,0,Initial Test
-24,1,0.7857142857142857,0,Initial Test
-24,2,0.75,0,Initial Test
-24,3,0.6875,0,Initial Test
-24,4,0.5714285714285714,0,Initial Test
-29,0,0.75,0,Initial Test
-29,1,0.9285714285714286,0,Initial Test
-29,2,0.8125,0,Initial Test
-29,3,0.6875,0,Initial Test
-29,4,0.5,0,Initial Test
-30,0,0.5,0,Initial Test
-30,1,0.5,0,Initial Test
-30,2,0.625,0,Initial Test
-30,3,0.4375,0,Initial Test
-30,4,0.2857142857142857,0,Initial Test
-31,0,1.0,0,Initial Test
-31,1,0.8571428571428571,0,Initial Test
-31,2,0.6875,0,Initial Test
-31,3,0.5625,0,Initial Test
-31,4,0.6428571428571429,0,Initial Test
-33,0,1.0,0,Initial Test
-33,1,0.9285714285714286,0,Initial Test
-33,2,0.8125,0,Initial Test
-33,3,0.75,0,Initial Test
-33,4,0.7142857142857143,0,Initial Test
-34,0,1.0,0,Initial Test
-34,1,0.7857142857142857,0,Initial Test
-34,2,0.75,0,Initial Test
-34,3,0.8125,0,Initial Test
-34,4,0.6428571428571429,0,Initial Test
-35,0,1.0,0,Initial Test
-35,1,0.7857142857142857,0,Initial Test
-35,2,0.75,0,Initial Test
-35,3,0.75,0,Initial Test
-35,4,0.6428571428571429,0,Initial Test
-36,0,0.75,0,Initial Test
-36,1,0.6428571428571429,0,Initial Test
-36,2,0.5625,0,Initial Test
-36,3,0.5625,0,Initial Test
-36,4,0.6428571428571429,0,Initial Test
-37,0,1.0,0,Initial Test
-37,1,0.9285714285714286,0,Initial Test
-37,2,0.875,0,Initial Test
-37,3,0.625,0,Initial Test
-37,4,0.5,0,Initial Test
-38,0,0.75,0,Initial Test
-38,1,0.7142857142857143,0,Initial Test
-38,2,0.75,0,Initial Test
-38,3,0.625,0,Initial Test
-38,4,0.6428571428571429,0,Initial Test
-41,0,0.75,0,Initial Test
-41,1,0.7142857142857143,0,Initial Test
-41,2,0.6875,0,Initial Test
-41,3,0.6875,0,Initial Test
-41,4,0.6428571428571429,0,Initial Test
-46,0,1.0,0,Initial Test
-46,1,0.8571428571428571,0,Initial Test
-46,2,0.6875,0,Initial Test
-46,3,0.6875,0,Initial Test
-46,4,0.5714285714285714,0,Initial Test
-47,0,1.0,0,Initial Test
-47,1,0.8571428571428571,0,Initial Test
-47,2,0.6875,0,Initial Test
-47,3,0.75,0,Initial Test
-47,4,0.6428571428571429,0,Initial Test
-49,0,0.75,0,Initial Test
-49,1,0.7857142857142857,0,Initial Test
-49,2,0.8125,0,Initial Test
-49,3,0.75,0,Initial Test
-49,4,0.35714285714285715,0,Initial Test
-51,0,0.75,0,Initial Test
-51,1,0.8571428571428571,0,Initial Test
-51,2,0.75,0,Initial Test
-51,3,0.625,0,Initial Test
-51,4,0.6428571428571429,0,Initial Test
-52,0,1.0,0,Initial Test
-52,1,0.7142857142857143,0,Initial Test
-52,2,0.75,0,Initial Test
-52,3,0.6875,0,Initial Test
-52,4,0.7857142857142857,0,Initial Test
-53,0,0.75,0,Initial Test
-53,1,0.6428571428571429,0,Initial Test
-53,2,0.625,0,Initial Test
-53,3,0.6875,0,Initial Test
-53,4,0.5714285714285714,0,Initial Test
-55,0,0.5,0,Initial Test
-55,1,0.5,0,Initial Test
-55,2,0.5625,0,Initial Test
-55,3,0.6875,0,Initial Test
-55,4,0.5,0,Initial Test
-57,0,0.5,0,Initial Test
-57,1,0.5714285714285714,0,Initial Test
-57,2,0.6875,0,Initial Test
-57,3,0.4375,0,Initial Test
-57,4,0.42857142857142855,0,Initial Test
-58,0,0.75,0,Initial Test
-58,1,0.8571428571428571,0,Initial Test
-58,2,0.8125,0,Initial Test
-58,3,0.8125,0,Initial Test
-58,4,0.7142857142857143,0,Initial Test
-59,0,0.5,0,Initial Test
-59,1,0.7142857142857143,0,Initial Test
-59,2,0.5625,0,Initial Test
-59,3,0.5,0,Initial Test
-59,4,0.5,0,Initial Test
-61,0,1.0,0,Initial Test
-61,1,0.8571428571428571,0,Initial Test
-61,2,0.75,0,Initial Test
-61,3,0.5,0,Initial Test
-61,4,0.6428571428571429,0,Initial Test
-64,0,0.5,0,Initial Test
-64,1,0.5,0,Initial Test
-64,2,0.6875,0,Initial Test
-64,3,0.375,0,Initial Test
-64,4,0.5714285714285714,0,Initial Test
-66,0,0.75,0,Initial Test
-66,1,0.8571428571428571,0,Initial Test
-66,2,0.5625,0,Initial Test
-66,3,0.8125,0,Initial Test
-66,4,0.5714285714285714,0,Initial Test
-70,0,1.0,0,Initial Test
-70,1,0.8571428571428571,0,Initial Test
-70,2,0.9375,0,Initial Test
-70,3,0.75,0,Initial Test
-70,4,0.6428571428571429,0,Initial Test
-71,0,0.75,0,Initial Test
-71,1,0.7142857142857143,0,Initial Test
-71,2,0.625,0,Initial Test
-71,3,0.625,0,Initial Test
-71,4,0.7857142857142857,0,Initial Test
-74,0,0.75,0,Initial Test
-74,1,0.5,0,Initial Test
-74,2,0.75,0,Initial Test
-74,3,0.625,0,Initial Test
-74,4,0.5,0,Initial Test
-75,0,1.0,0,Initial Test
-75,1,0.8571428571428571,0,Initial Test
-75,2,0.625,0,Initial Test
-75,3,0.6875,0,Initial Test
-75,4,0.6428571428571429,0,Initial Test
-80,0,1.0,0,Initial Test
-80,1,0.9285714285714286,0,Initial Test
-80,2,0.8125,0,Initial Test
-80,3,0.625,0,Initial Test
-80,4,0.5714285714285714,0,Initial Test
-81,0,0.75,0,Initial Test
-81,1,0.7857142857142857,0,Initial Test
-81,2,0.6875,0,Initial Test
-81,3,0.75,0,Initial Test
-81,4,0.7857142857142857,0,Initial Test
-82,0,1.0,0,Initial Test
-82,1,0.35714285714285715,0,Initial Test
-82,2,0.625,0,Initial Test
-82,3,0.5625,0,Initial Test
-82,4,0.7142857142857143,0,Initial Test
-83,0,1.0,0,Initial Test
-83,1,0.9285714285714286,0,Initial Test
-83,2,0.8125,0,Initial Test
-83,3,0.75,0,Initial Test
-83,4,0.6428571428571429,0,Initial Test
-86,0,0.5,0,Initial Test
-86,1,0.5714285714285714,0,Initial Test
-86,2,0.8125,0,Initial Test
-86,3,0.625,0,Initial Test
-86,4,0.7142857142857143,0,Initial Test
-87,0,1.0,0,Initial Test
-87,1,0.7142857142857143,0,Initial Test
-87,2,0.625,0,Initial Test
-87,3,0.6875,0,Initial Test
-87,4,0.7142857142857143,0,Initial Test
-88,0,1.0,0,Initial Test
-88,1,0.9285714285714286,0,Initial Test
-88,2,0.9375,0,Initial Test
-88,3,0.625,0,Initial Test
-88,4,0.6428571428571429,0,Initial Test
-90,0,0.75,0,Initial Test
-90,1,0.9285714285714286,0,Initial Test
-90,2,0.875,0,Initial Test
-90,3,0.75,0,Initial Test
-90,4,0.7142857142857143,0,Initial Test
-92,0,0.5,0,Initial Test
-92,1,0.14285714285714285,0,Initial Test
-92,2,0.8125,0,Initial Test
-92,3,0.625,0,Initial Test
-92,4,0.5714285714285714,0,Initial Test
-93,0,1.0,0,Initial Test
-93,1,0.9285714285714286,0,Initial Test
-93,2,0.9375,0,Initial Test
-93,3,0.625,0,Initial Test
-93,4,0.7857142857142857,0,Initial Test
-95,0,0.75,0,Initial Test
-95,1,0.6428571428571429,0,Initial Test
-95,2,0.625,0,Initial Test
-95,3,0.5625,0,Initial Test
-95,4,0.6428571428571429,0,Initial Test
-96,0,1.0,0,Initial Test
-96,1,0.8571428571428571,0,Initial Test
-96,2,0.6875,0,Initial Test
-96,3,0.625,0,Initial Test
-96,4,0.6428571428571429,0,Initial Test
-98,0,0.75,0,Initial Test
-98,1,0.5714285714285714,0,Initial Test
-98,2,0.6875,0,Initial Test
-98,3,0.8125,0,Initial Test
-98,4,0.5,0,Initial Test
-103,0,1.0,0,Initial Test
-103,1,0.8571428571428571,0,Initial Test
-103,2,0.75,0,Initial Test
-103,3,0.6875,0,Initial Test
-103,4,0.6428571428571429,0,Initial Test
-104,0,0.5,0,Initial Test
-104,1,0.7142857142857143,0,Initial Test
-104,2,0.625,0,Initial Test
-104,3,0.5,0,Initial Test
-104,4,0.42857142857142855,0,Initial Test
-106,0,1.0,0,Initial Test
-106,1,0.6428571428571429,0,Initial Test
-106,2,0.625,0,Initial Test
-106,3,0.3125,0,Initial Test
-106,4,0.6428571428571429,0,Initial Test
-109,0,1.0,0,Initial Test
-109,1,0.7857142857142857,0,Initial Test
-109,2,0.8125,0,Initial Test
-109,3,0.6875,0,Initial Test
-109,4,0.6428571428571429,0,Initial Test
-112,0,1.0,0,Initial Test
-112,1,0.8571428571428571,0,Initial Test
-112,2,0.8125,0,Initial Test
-112,3,0.8125,0,Initial Test
-112,4,0.7857142857142857,0,Initial Test
-113,0,1.0,0,Initial Test
-113,1,0.9285714285714286,0,Initial Test
-113,2,0.75,0,Initial Test
-113,3,0.75,0,Initial Test
-113,4,0.6428571428571429,0,Initial Test
-8,0,0.75,1,1 Week Retest
-8,1,0.8571428571428571,1,1 Week Retest
-8,2,0.75,1,1 Week Retest
-8,3,0.6875,1,1 Week Retest
-8,4,0.42857142857142855,1,1 Week Retest
-12,0,1.0,1,1 Week Retest
-12,1,0.9285714285714286,1,1 Week Retest
-12,2,1.0,1,1 Week Retest
-12,3,0.9375,1,1 Week Retest
-12,4,0.6428571428571429,1,1 Week Retest
-20,0,1.0,1,1 Week Retest
-20,1,0.9285714285714286,1,1 Week Retest
-20,2,0.75,1,1 Week Retest
-20,3,0.75,1,1 Week Retest
-20,4,0.35714285714285715,1,1 Week Retest
-23,0,1.0,1,1 Week Retest
-23,1,0.8571428571428571,1,1 Week Retest
-23,2,0.6875,1,1 Week Retest
-23,3,0.5625,1,1 Week Retest
-23,4,0.7857142857142857,1,1 Week Retest
-24,0,1.0,1,1 Week Retest
-24,1,0.7857142857142857,1,1 Week Retest
-24,2,0.625,1,1 Week Retest
-24,3,0.4375,1,1 Week Retest
-24,4,0.07142857142857142,1,1 Week Retest
-29,0,0.75,1,1 Week Retest
-29,1,0.9285714285714286,1,1 Week Retest
-29,2,0.75,1,1 Week Retest
-29,3,0.5625,1,1 Week Retest
-29,4,0.42857142857142855,1,1 Week Retest
-30,0,1.0,1,1 Week Retest
-30,1,0.7142857142857143,1,1 Week Retest
-30,2,0.625,1,1 Week Retest
-30,3,0.625,1,1 Week Retest
-30,4,0.5714285714285714,1,1 Week Retest
-31,0,1.0,1,1 Week Retest
-31,1,0.7857142857142857,1,1 Week Retest
-31,2,0.5625,1,1 Week Retest
-31,3,0.5625,1,1 Week Retest
-31,4,0.5,1,1 Week Retest
-33,0,0.5,1,1 Week Retest
-33,1,0.7142857142857143,1,1 Week Retest
-33,2,0.4375,1,1 Week Retest
-33,3,0.6875,1,1 Week Retest
-33,4,0.5714285714285714,1,1 Week Retest
-34,0,0.75,1,1 Week Retest
-34,1,0.35714285714285715,1,1 Week Retest
-34,2,0.5,1,1 Week Retest
-34,3,0.6875,1,1 Week Retest
-34,4,0.5714285714285714,1,1 Week Retest
-35,0,1.0,1,1 Week Retest
-35,1,0.8571428571428571,1,1 Week Retest
-35,2,0.75,1,1 Week Retest
-35,3,0.5625,1,1 Week Retest
-35,4,0.5714285714285714,1,1 Week Retest
-36,0,0.75,1,1 Week Retest
-36,1,0.42857142857142855,1,1 Week Retest
-36,2,0.75,1,1 Week Retest
-36,3,0.5,1,1 Week Retest
-36,4,0.42857142857142855,1,1 Week Retest
-37,0,1.0,1,1 Week Retest
-37,1,0.6428571428571429,1,1 Week Retest
-37,2,0.625,1,1 Week Retest
-37,3,0.6875,1,1 Week Retest
-37,4,0.7857142857142857,1,1 Week Retest
-38,0,1.0,1,1 Week Retest
-38,1,0.9285714285714286,1,1 Week Retest
-38,2,0.875,1,1 Week Retest
-38,3,0.625,1,1 Week Retest
-38,4,0.6428571428571429,1,1 Week Retest
-41,0,1.0,1,1 Week Retest
-41,1,0.7142857142857143,1,1 Week Retest
-41,2,0.6875,1,1 Week Retest
-41,3,0.75,1,1 Week Retest
-41,4,0.35714285714285715,1,1 Week Retest
-46,0,1.0,1,1 Week Retest
-46,1,0.7857142857142857,1,1 Week Retest
-46,2,0.75,1,1 Week Retest
-46,3,0.8125,1,1 Week Retest
-46,4,0.35714285714285715,1,1 Week Retest
-47,0,1.0,1,1 Week Retest
-47,1,0.9285714285714286,1,1 Week Retest
-47,2,0.875,1,1 Week Retest
-47,3,0.625,1,1 Week Retest
-47,4,0.42857142857142855,1,1 Week Retest
-49,0,0.75,1,1 Week Retest
-49,1,0.8571428571428571,1,1 Week Retest
-49,2,0.6875,1,1 Week Retest
-49,3,0.4375,1,1 Week Retest
-49,4,0.7142857142857143,1,1 Week Retest
-51,0,1.0,1,1 Week Retest
-51,1,0.9285714285714286,1,1 Week Retest
-51,2,0.75,1,1 Week Retest
-51,3,0.625,1,1 Week Retest
-51,4,0.35714285714285715,1,1 Week Retest
-52,0,1.0,1,1 Week Retest
-52,1,0.9285714285714286,1,1 Week Retest
-52,2,0.875,1,1 Week Retest
-52,3,0.6875,1,1 Week Retest
-52,4,0.35714285714285715,1,1 Week Retest
-53,0,1.0,1,1 Week Retest
-53,1,0.8571428571428571,1,1 Week Retest
-53,2,0.6875,1,1 Week Retest
-53,3,0.5,1,1 Week Retest
-53,4,0.6428571428571429,1,1 Week Retest
-55,0,0.75,1,1 Week Retest
-55,1,0.8571428571428571,1,1 Week Retest
-55,2,0.8125,1,1 Week Retest
-55,3,0.5625,1,1 Week Retest
-55,4,0.7142857142857143,1,1 Week Retest
-57,0,1.0,1,1 Week Retest
-57,1,0.6428571428571429,1,1 Week Retest
-57,2,0.6875,1,1 Week Retest
-57,3,0.625,1,1 Week Retest
-57,4,0.5714285714285714,1,1 Week Retest
-58,0,0.75,1,1 Week Retest
-58,1,0.7857142857142857,1,1 Week Retest
-58,2,0.5625,1,1 Week Retest
-58,3,0.375,1,1 Week Retest
-58,4,0.5714285714285714,1,1 Week Retest
-59,0,0.5,1,1 Week Retest
-59,1,0.8571428571428571,1,1 Week Retest
-59,2,0.6875,1,1 Week Retest
-59,3,0.5625,1,1 Week Retest
-59,4,0.5,1,1 Week Retest
-61,0,1.0,1,1 Week Retest
-61,1,0.8571428571428571,1,1 Week Retest
-61,2,0.75,1,1 Week Retest
-61,3,0.5625,1,1 Week Retest
-61,4,0.5,1,1 Week Retest
-64,0,0.5,1,1 Week Retest
-64,1,0.7857142857142857,1,1 Week Retest
-64,2,0.6875,1,1 Week Retest
-64,3,0.5,1,1 Week Retest
-64,4,0.5714285714285714,1,1 Week Retest
-66,0,0.75,1,1 Week Retest
-66,1,0.42857142857142855,1,1 Week Retest
-66,2,0.75,1,1 Week Retest
-66,3,0.6875,1,1 Week Retest
-66,4,0.35714285714285715,1,1 Week Retest
-70,0,1.0,1,1 Week Retest
-70,1,1.0,1,1 Week Retest
-70,2,0.6875,1,1 Week Retest
-70,3,0.625,1,1 Week Retest
-70,4,0.2857142857142857,1,1 Week Retest
-71,0,1.0,1,1 Week Retest
-71,1,0.9285714285714286,1,1 Week Retest
-71,2,0.625,1,1 Week Retest
-71,3,0.75,1,1 Week Retest
-71,4,0.5714285714285714,1,1 Week Retest
-74,0,1.0,1,1 Week Retest
-74,1,0.7857142857142857,1,1 Week Retest
-74,2,0.6875,1,1 Week Retest
-74,3,0.6875,1,1 Week Retest
-74,4,0.5,1,1 Week Retest
-75,0,1.0,1,1 Week Retest
-75,1,0.8571428571428571,1,1 Week Retest
-75,2,0.5625,1,1 Week Retest
-75,3,0.8125,1,1 Week Retest
-75,4,0.7142857142857143,1,1 Week Retest
-80,0,1.0,1,1 Week Retest
-80,1,0.8571428571428571,1,1 Week Retest
-80,2,0.75,1,1 Week Retest
-80,3,0.5625,1,1 Week Retest
-80,4,0.7142857142857143,1,1 Week Retest
-81,0,1.0,1,1 Week Retest
-81,1,0.7857142857142857,1,1 Week Retest
-81,2,0.875,1,1 Week Retest
-81,3,0.5625,1,1 Week Retest
-81,4,0.42857142857142855,1,1 Week Retest
-82,0,1.0,1,1 Week Retest
-82,1,0.9285714285714286,1,1 Week Retest
-82,2,0.6875,1,1 Week Retest
-82,3,0.625,1,1 Week Retest
-82,4,0.6428571428571429,1,1 Week Retest
-83,0,0.75,1,1 Week Retest
-83,1,1.0,1,1 Week Retest
-83,2,0.875,1,1 Week Retest
-83,3,0.6875,1,1 Week Retest
-83,4,0.35714285714285715,1,1 Week Retest
-86,0,0.75,1,1 Week Retest
-86,1,0.8571428571428571,1,1 Week Retest
-86,2,0.75,1,1 Week Retest
-86,3,0.6875,1,1 Week Retest
-86,4,0.42857142857142855,1,1 Week Retest
-87,0,0.5,1,1 Week Retest
-87,1,0.35714285714285715,1,1 Week Retest
-87,2,0.5,1,1 Week Retest
-87,3,0.5,1,1 Week Retest
-87,4,0.6428571428571429,1,1 Week Retest
-88,0,0.75,1,1 Week Retest
-88,1,0.8571428571428571,1,1 Week Retest
-88,2,0.6875,1,1 Week Retest
-88,3,0.5625,1,1 Week Retest
-88,4,0.5714285714285714,1,1 Week Retest
-90,0,1.0,1,1 Week Retest
-90,1,0.7857142857142857,1,1 Week Retest
-90,2,0.75,1,1 Week Retest
-90,3,0.6875,1,1 Week Retest
-90,4,0.35714285714285715,1,1 Week Retest
-92,0,0.75,1,1 Week Retest
-92,1,1.0,1,1 Week Retest
-92,2,0.75,1,1 Week Retest
-92,3,0.625,1,1 Week Retest
-92,4,0.5,1,1 Week Retest
-93,0,1.0,1,1 Week Retest
-93,1,0.9285714285714286,1,1 Week Retest
-93,2,0.6875,1,1 Week Retest
-93,3,0.625,1,1 Week Retest
-93,4,0.5,1,1 Week Retest
-95,0,1.0,1,1 Week Retest
-95,1,0.6428571428571429,1,1 Week Retest
-95,2,0.8125,1,1 Week Retest
-95,3,0.5,1,1 Week Retest
-95,4,0.5,1,1 Week Retest
-96,0,0.75,1,1 Week Retest
-96,1,0.7857142857142857,1,1 Week Retest
-96,2,0.8125,1,1 Week Retest
-96,3,0.625,1,1 Week Retest
-96,4,0.35714285714285715,1,1 Week Retest
-98,0,0.75,1,1 Week Retest
-98,1,0.9285714285714286,1,1 Week Retest
-98,2,0.6875,1,1 Week Retest
-98,3,0.5,1,1 Week Retest
-98,4,0.5714285714285714,1,1 Week Retest
-103,0,0.75,1,1 Week Retest
-103,1,0.8571428571428571,1,1 Week Retest
-103,2,0.6875,1,1 Week Retest
-103,3,0.6875,1,1 Week Retest
-103,4,0.2857142857142857,1,1 Week Retest
-104,0,0.75,1,1 Week Retest
-104,1,0.8571428571428571,1,1 Week Retest
-104,2,0.875,1,1 Week Retest
-104,3,0.4375,1,1 Week Retest
-104,4,0.6428571428571429,1,1 Week Retest
-106,0,1.0,1,1 Week Retest
-106,1,0.7857142857142857,1,1 Week Retest
-106,2,0.8125,1,1 Week Retest
-106,3,0.75,1,1 Week Retest
-106,4,0.7142857142857143,1,1 Week Retest
-109,0,1.0,1,1 Week Retest
-109,1,0.8571428571428571,1,1 Week Retest
-109,2,0.8125,1,1 Week Retest
-109,3,0.75,1,1 Week Retest
-109,4,0.35714285714285715,1,1 Week Retest
-112,0,1.0,1,1 Week Retest
-112,1,0.5,1,1 Week Retest
-112,2,0.5625,1,1 Week Retest
-112,3,0.625,1,1 Week Retest
-112,4,0.5,1,1 Week Retest
-113,0,0.75,1,1 Week Retest
-113,1,0.9285714285714286,1,1 Week Retest
-113,2,0.9375,1,1 Week Retest
-113,3,0.8125,1,1 Week Retest
-113,4,0.5714285714285714,1,1 Week Retest
-8,0,1.0,2,Final Retest
-8,1,0.9285714285714286,2,Final Retest
-8,2,0.6875,2,Final Retest
-8,3,0.875,2,Final Retest
-8,4,0.6428571428571429,2,Final Retest
-12,0,1.0,2,Final Retest
-12,1,1.0,2,Final Retest
-12,2,0.6875,2,Final Retest
-12,3,0.875,2,Final Retest
-12,4,0.7857142857142857,2,Final Retest
-20,0,1.0,2,Final Retest
-20,1,0.9285714285714286,2,Final Retest
-20,2,0.6875,2,Final Retest
-20,3,0.5625,2,Final Retest
-20,4,0.6428571428571429,2,Final Retest
-23,0,1.0,2,Final Retest
-23,1,0.7142857142857143,2,Final Retest
-23,2,0.6875,2,Final Retest
-23,3,0.6875,2,Final Retest
-23,4,0.7142857142857143,2,Final Retest
-24,0,1.0,2,Final Retest
-24,1,0.8571428571428571,2,Final Retest
-24,2,0.625,2,Final Retest
-24,3,0.8125,2,Final Retest
-24,4,0.5714285714285714,2,Final Retest
-29,0,1.0,2,Final Retest
-29,1,0.9285714285714286,2,Final Retest
-29,2,0.75,2,Final Retest
-29,3,0.625,2,Final Retest
-29,4,0.5714285714285714,2,Final Retest
-30,0,1.0,2,Final Retest
-30,1,0.8571428571428571,2,Final Retest
-30,2,0.75,2,Final Retest
-30,3,0.6875,2,Final Retest
-30,4,0.5,2,Final Retest
-31,0,1.0,2,Final Retest
-31,1,1.0,2,Final Retest
-31,2,0.9375,2,Final Retest
-31,3,1.0,2,Final Retest
-31,4,0.7142857142857143,2,Final Retest
-33,0,0.75,2,Final Retest
-33,1,0.8571428571428571,2,Final Retest
-33,2,0.6875,2,Final Retest
-33,3,0.5625,2,Final Retest
-33,4,0.6428571428571429,2,Final Retest
-34,0,1.0,2,Final Retest
-34,1,0.8571428571428571,2,Final Retest
-34,2,0.75,2,Final Retest
-34,3,0.625,2,Final Retest
-34,4,0.7142857142857143,2,Final Retest
-35,0,0.75,2,Final Retest
-35,1,0.8571428571428571,2,Final Retest
-35,2,0.8125,2,Final Retest
-35,3,0.5625,2,Final Retest
-35,4,0.5714285714285714,2,Final Retest
-36,0,1.0,2,Final Retest
-36,1,0.9285714285714286,2,Final Retest
-36,2,0.75,2,Final Retest
-36,3,0.625,2,Final Retest
-36,4,0.6428571428571429,2,Final Retest
-37,0,1.0,2,Final Retest
-37,1,0.8571428571428571,2,Final Retest
-37,2,0.8125,2,Final Retest
-37,3,0.75,2,Final Retest
-37,4,0.5,2,Final Retest
-38,0,0.75,2,Final Retest
-38,1,0.9285714285714286,2,Final Retest
-38,2,0.625,2,Final Retest
-38,3,0.75,2,Final Retest
-38,4,0.7142857142857143,2,Final Retest
-41,0,1.0,2,Final Retest
-41,1,0.9285714285714286,2,Final Retest
-41,2,0.875,2,Final Retest
-41,3,0.875,2,Final Retest
-41,4,0.6428571428571429,2,Final Retest
-46,0,1.0,2,Final Retest
-46,1,0.9285714285714286,2,Final Retest
-46,2,0.6875,2,Final Retest
-46,3,0.6875,2,Final Retest
-46,4,0.6428571428571429,2,Final Retest
-47,0,1.0,2,Final Retest
-47,1,0.9285714285714286,2,Final Retest
-47,2,0.75,2,Final Retest
-47,3,0.6875,2,Final Retest
-47,4,0.7142857142857143,2,Final Retest
-49,0,0.75,2,Final Retest
-49,1,1.0,2,Final Retest
-49,2,0.625,2,Final Retest
-49,3,0.75,2,Final Retest
-49,4,0.7142857142857143,2,Final Retest
-51,0,0.75,2,Final Retest
-51,1,0.8571428571428571,2,Final Retest
-51,2,0.6875,2,Final Retest
-51,3,0.875,2,Final Retest
-51,4,0.6428571428571429,2,Final Retest
-52,0,0.75,2,Final Retest
-52,1,1.0,2,Final Retest
-52,2,0.6875,2,Final Retest
-52,3,0.6875,2,Final Retest
-52,4,0.6428571428571429,2,Final Retest
-53,0,1.0,2,Final Retest
-53,1,1.0,2,Final Retest
-53,2,0.75,2,Final Retest
-53,3,0.75,2,Final Retest
-53,4,0.7142857142857143,2,Final Retest
-55,0,1.0,2,Final Retest
-55,1,0.8571428571428571,2,Final Retest
-55,2,0.8125,2,Final Retest
-55,3,0.8125,2,Final Retest
-55,4,0.7857142857142857,2,Final Retest
-57,0,0.75,2,Final Retest
-57,1,0.9285714285714286,2,Final Retest
-57,2,0.75,2,Final Retest
-57,3,0.75,2,Final Retest
-57,4,0.6428571428571429,2,Final Retest
-58,0,1.0,2,Final Retest
-58,1,0.7857142857142857,2,Final Retest
-58,2,0.875,2,Final Retest
-58,3,0.6875,2,Final Retest
-58,4,0.7142857142857143,2,Final Retest
-59,0,1.0,2,Final Retest
-59,1,0.7142857142857143,2,Final Retest
-59,2,0.75,2,Final Retest
-59,3,0.5625,2,Final Retest
-59,4,0.7142857142857143,2,Final Retest
-61,0,1.0,2,Final Retest
-61,1,0.7857142857142857,2,Final Retest
-61,2,0.75,2,Final Retest
-61,3,0.625,2,Final Retest
-61,4,0.6428571428571429,2,Final Retest
-64,0,0.5,2,Final Retest
-64,1,0.42857142857142855,2,Final Retest
-64,2,0.6875,2,Final Retest
-64,3,0.625,2,Final Retest
-64,4,0.5714285714285714,2,Final Retest
-66,0,1.0,2,Final Retest
-66,1,0.8571428571428571,2,Final Retest
-66,2,0.75,2,Final Retest
-66,3,0.8125,2,Final Retest
-66,4,0.6428571428571429,2,Final Retest
-70,0,0.75,2,Final Retest
-70,1,0.9285714285714286,2,Final Retest
-70,2,0.625,2,Final Retest
-70,3,0.625,2,Final Retest
-70,4,0.5714285714285714,2,Final Retest
-71,0,1.0,2,Final Retest
-71,1,1.0,2,Final Retest
-71,2,0.625,2,Final Retest
-71,3,0.8125,2,Final Retest
-71,4,0.7142857142857143,2,Final Retest
-74,0,0.5,2,Final Retest
-74,1,0.8571428571428571,2,Final Retest
-74,2,0.6875,2,Final Retest
-74,3,0.6875,2,Final Retest
-74,4,0.6428571428571429,2,Final Retest
-75,0,1.0,2,Final Retest
-75,1,0.8571428571428571,2,Final Retest
-75,2,0.8125,2,Final Retest
-75,3,0.75,2,Final Retest
-75,4,0.5714285714285714,2,Final Retest
-80,0,1.0,2,Final Retest
-80,1,0.9285714285714286,2,Final Retest
-80,2,0.625,2,Final Retest
-80,3,0.75,2,Final Retest
-80,4,0.7142857142857143,2,Final Retest
-81,0,1.0,2,Final Retest
-81,1,0.8571428571428571,2,Final Retest
-81,2,0.6875,2,Final Retest
-81,3,0.9375,2,Final Retest
-81,4,0.6428571428571429,2,Final Retest
-82,0,1.0,2,Final Retest
-82,1,0.8571428571428571,2,Final Retest
-82,2,0.8125,2,Final Retest
-82,3,0.75,2,Final Retest
-82,4,0.5714285714285714,2,Final Retest
-83,0,0.75,2,Final Retest
-83,1,0.8571428571428571,2,Final Retest
-83,2,0.625,2,Final Retest
-83,3,0.6875,2,Final Retest
-83,4,0.5714285714285714,2,Final Retest
-86,0,1.0,2,Final Retest
-86,1,0.9285714285714286,2,Final Retest
-86,2,0.6875,2,Final Retest
-86,3,0.8125,2,Final Retest
-86,4,0.7142857142857143,2,Final Retest
-87,0,1.0,2,Final Retest
-87,1,0.9285714285714286,2,Final Retest
-87,2,0.8125,2,Final Retest
-87,3,0.6875,2,Final Retest
-87,4,0.5,2,Final Retest
-88,0,1.0,2,Final Retest
-88,1,0.7857142857142857,2,Final Retest
-88,2,0.625,2,Final Retest
-88,3,0.875,2,Final Retest
-88,4,0.6428571428571429,2,Final Retest
-90,0,1.0,2,Final Retest
-90,1,0.9285714285714286,2,Final Retest
-90,2,0.6875,2,Final Retest
-90,3,0.875,2,Final Retest
-90,4,0.7142857142857143,2,Final Retest
-92,0,1.0,2,Final Retest
-92,1,1.0,2,Final Retest
-92,2,0.8125,2,Final Retest
-92,3,0.625,2,Final Retest
-92,4,0.5,2,Final Retest
-93,0,1.0,2,Final Retest
-93,1,1.0,2,Final Retest
-93,2,0.5625,2,Final Retest
-93,3,0.75,2,Final Retest
-93,4,0.6428571428571429,2,Final Retest
-95,0,1.0,2,Final Retest
-95,1,0.7142857142857143,2,Final Retest
-95,2,0.625,2,Final Retest
-95,3,0.5,2,Final Retest
-95,4,0.6428571428571429,2,Final Retest
-96,0,1.0,2,Final Retest
-96,1,0.5,2,Final Retest
-96,2,0.8125,2,Final Retest
-96,3,0.8125,2,Final Retest
-96,4,0.5714285714285714,2,Final Retest
-98,0,1.0,2,Final Retest
-98,1,0.9285714285714286,2,Final Retest
-98,2,0.875,2,Final Retest
-98,3,0.6875,2,Final Retest
-98,4,0.5714285714285714,2,Final Retest
-103,0,1.0,2,Final Retest
-103,1,1.0,2,Final Retest
-103,2,0.75,2,Final Retest
-103,3,0.75,2,Final Retest
-103,4,0.7142857142857143,2,Final Retest
-104,0,1.0,2,Final Retest
-104,1,0.8571428571428571,2,Final Retest
-104,2,0.75,2,Final Retest
-104,3,0.6875,2,Final Retest
-104,4,0.5,2,Final Retest
-106,0,1.0,2,Final Retest
-106,1,1.0,2,Final Retest
-106,2,0.625,2,Final Retest
-106,3,0.8125,2,Final Retest
-106,4,0.6428571428571429,2,Final Retest
-109,0,1.0,2,Final Retest
-109,1,0.9285714285714286,2,Final Retest
-109,2,0.5625,2,Final Retest
-109,3,0.875,2,Final Retest
-109,4,0.7142857142857143,2,Final Retest
-112,0,0.75,2,Final Retest
-112,1,1.0,2,Final Retest
-112,2,0.75,2,Final Retest
-112,3,0.5,2,Final Retest
-112,4,0.5714285714285714,2,Final Retest
-113,0,1.0,2,Final Retest
-113,1,0.8571428571428571,2,Final Retest
-113,2,0.8125,2,Final Retest
-113,3,0.8125,2,Final Retest
-113,4,0.6428571428571429,2,Final Retest
+subject_id,distance,correct,test,test_label,block
+8,0,1.0,0,Initial Test,test
+8,1,0.9,0,Initial Test,test
+8,2,0.9,0,Initial Test,test
+8,3,0.8,0,Initial Test,test
+8,4,0.7,0,Initial Test,test
+12,0,1.0,0,Initial Test,test
+12,1,1.0,0,Initial Test,test
+12,2,1.0,0,Initial Test,test
+12,3,0.9,0,Initial Test,test
+12,4,0.9,0,Initial Test,test
+20,0,1.0,0,Initial Test,test
+20,1,1.0,0,Initial Test,test
+20,2,0.8,0,Initial Test,test
+20,3,0.8,0,Initial Test,test
+20,4,0.7,0,Initial Test,test
+23,0,1.0,0,Initial Test,test
+23,1,0.9,0,Initial Test,test
+23,2,0.7,0,Initial Test,test
+23,3,0.7,0,Initial Test,test
+23,4,0.5,0,Initial Test,test
+24,0,1.0,0,Initial Test,test
+24,1,0.8,0,Initial Test,test
+24,2,0.7,0,Initial Test,test
+24,3,0.7,0,Initial Test,test
+24,4,0.5,0,Initial Test,test
+29,0,1.0,0,Initial Test,test
+29,1,1.0,0,Initial Test,test
+29,2,0.9,0,Initial Test,test
+29,3,0.7,0,Initial Test,test
+29,4,0.5,0,Initial Test,test
+30,0,0.5,0,Initial Test,test
+30,1,0.6,0,Initial Test,test
+30,2,0.6,0,Initial Test,test
+30,3,0.5,0,Initial Test,test
+30,4,0.4,0,Initial Test,test
+31,0,1.0,0,Initial Test,test
+31,1,0.8,0,Initial Test,test
+31,2,0.7,0,Initial Test,test
+31,3,0.6,0,Initial Test,test
+31,4,0.6,0,Initial Test,test
+33,0,1.0,0,Initial Test,test
+33,1,1.0,0,Initial Test,test
+33,2,0.9,0,Initial Test,test
+33,3,0.7,0,Initial Test,test
+33,4,0.8,0,Initial Test,test
+34,0,1.0,0,Initial Test,test
+34,1,0.9,0,Initial Test,test
+34,2,0.8,0,Initial Test,test
+34,3,0.8,0,Initial Test,test
+34,4,0.6,0,Initial Test,test
+35,0,1.0,0,Initial Test,test
+35,1,0.8,0,Initial Test,test
+35,2,0.8,0,Initial Test,test
+35,3,0.8,0,Initial Test,test
+35,4,0.7,0,Initial Test,test
+36,0,0.5,0,Initial Test,test
+36,1,0.6,0,Initial Test,test
+36,2,0.5,0,Initial Test,test
+36,3,0.6,0,Initial Test,test
+36,4,0.6,0,Initial Test,test
+37,0,1.0,0,Initial Test,test
+37,1,1.0,0,Initial Test,test
+37,2,0.9,0,Initial Test,test
+37,3,0.6,0,Initial Test,test
+37,4,0.5,0,Initial Test,test
+38,0,1.0,0,Initial Test,test
+38,1,0.8,0,Initial Test,test
+38,2,0.7,0,Initial Test,test
+38,3,0.6,0,Initial Test,test
+38,4,0.5,0,Initial Test,test
+41,0,1.0,0,Initial Test,test
+41,1,0.8,0,Initial Test,test
+41,2,0.7,0,Initial Test,test
+41,3,0.8,0,Initial Test,test
+41,4,0.6,0,Initial Test,test
+46,0,1.0,0,Initial Test,test
+46,1,0.8,0,Initial Test,test
+46,2,0.6,0,Initial Test,test
+46,3,0.7,0,Initial Test,test
+46,4,0.6,0,Initial Test,test
+47,0,1.0,0,Initial Test,test
+47,1,0.9,0,Initial Test,test
+47,2,0.8,0,Initial Test,test
+47,3,0.7,0,Initial Test,test
+47,4,0.5,0,Initial Test,test
+49,0,1.0,0,Initial Test,test
+49,1,0.8,0,Initial Test,test
+49,2,0.9,0,Initial Test,test
+49,3,0.8,0,Initial Test,test
+49,4,0.4,0,Initial Test,test
+51,0,1.0,0,Initial Test,test
+51,1,0.9,0,Initial Test,test
+51,2,0.7,0,Initial Test,test
+51,3,0.7,0,Initial Test,test
+51,4,0.6,0,Initial Test,test
+52,0,1.0,0,Initial Test,test
+52,1,0.8,0,Initial Test,test
+52,2,0.7,0,Initial Test,test
+52,3,0.6,0,Initial Test,test
+52,4,0.7,0,Initial Test,test
+53,0,0.5,0,Initial Test,test
+53,1,0.6,0,Initial Test,test
+53,2,0.6,0,Initial Test,test
+53,3,0.6,0,Initial Test,test
+53,4,0.5,0,Initial Test,test
+55,0,1.0,0,Initial Test,test
+55,1,0.5,0,Initial Test,test
+55,2,0.5,0,Initial Test,test
+55,3,0.6,0,Initial Test,test
+55,4,0.5,0,Initial Test,test
+57,0,0.5,0,Initial Test,test
+57,1,0.6,0,Initial Test,test
+57,2,0.8,0,Initial Test,test
+57,3,0.6,0,Initial Test,test
+57,4,0.4,0,Initial Test,test
+58,0,1.0,0,Initial Test,test
+58,1,1.0,0,Initial Test,test
+58,2,0.8,0,Initial Test,test
+58,3,0.8,0,Initial Test,test
+58,4,0.7,0,Initial Test,test
+59,0,0.5,0,Initial Test,test
+59,1,0.8,0,Initial Test,test
+59,2,0.6,0,Initial Test,test
+59,3,0.7,0,Initial Test,test
+59,4,0.6,0,Initial Test,test
+61,0,1.0,0,Initial Test,test
+61,1,1.0,0,Initial Test,test
+61,2,0.9,0,Initial Test,test
+61,3,0.5,0,Initial Test,test
+61,4,0.7,0,Initial Test,test
+64,0,0.0,0,Initial Test,test
+64,1,0.5,0,Initial Test,test
+64,2,0.9,0,Initial Test,test
+64,3,0.3,0,Initial Test,test
+64,4,0.6,0,Initial Test,test
+66,0,1.0,0,Initial Test,test
+66,1,0.8,0,Initial Test,test
+66,2,0.7,0,Initial Test,test
+66,3,0.9,0,Initial Test,test
+66,4,0.6,0,Initial Test,test
+70,0,1.0,0,Initial Test,test
+70,1,1.0,0,Initial Test,test
+70,2,0.9,0,Initial Test,test
+70,3,0.7,0,Initial Test,test
+70,4,0.7,0,Initial Test,test
+71,0,1.0,0,Initial Test,test
+71,1,0.9,0,Initial Test,test
+71,2,0.9,0,Initial Test,test
+71,3,0.7,0,Initial Test,test
+71,4,0.7,0,Initial Test,test
+74,0,1.0,0,Initial Test,test
+74,1,0.6,0,Initial Test,test
+74,2,0.7,0,Initial Test,test
+74,3,0.6,0,Initial Test,test
+74,4,0.5,0,Initial Test,test
+75,0,1.0,0,Initial Test,test
+75,1,0.8,0,Initial Test,test
+75,2,0.7,0,Initial Test,test
+75,3,0.7,0,Initial Test,test
+75,4,0.6,0,Initial Test,test
+80,0,1.0,0,Initial Test,test
+80,1,0.9,0,Initial Test,test
+80,2,0.7,0,Initial Test,test
+80,3,0.8,0,Initial Test,test
+80,4,0.6,0,Initial Test,test
+81,0,1.0,0,Initial Test,test
+81,1,0.8,0,Initial Test,test
+81,2,0.8,0,Initial Test,test
+81,3,0.8,0,Initial Test,test
+81,4,0.8,0,Initial Test,test
+82,0,1.0,0,Initial Test,test
+82,1,0.3,0,Initial Test,test
+82,2,0.5,0,Initial Test,test
+82,3,0.6,0,Initial Test,test
+82,4,0.6,0,Initial Test,test
+83,0,1.0,0,Initial Test,test
+83,1,1.0,0,Initial Test,test
+83,2,0.9,0,Initial Test,test
+83,3,0.8,0,Initial Test,test
+83,4,0.7,0,Initial Test,test
+86,0,0.5,0,Initial Test,test
+86,1,0.5,0,Initial Test,test
+86,2,0.7,0,Initial Test,test
+86,3,0.7,0,Initial Test,test
+86,4,0.6,0,Initial Test,test
+87,0,1.0,0,Initial Test,test
+87,1,0.6,0,Initial Test,test
+87,2,0.6,0,Initial Test,test
+87,3,0.6,0,Initial Test,test
+87,4,0.6,0,Initial Test,test
+88,0,1.0,0,Initial Test,test
+88,1,0.9,0,Initial Test,test
+88,2,1.0,0,Initial Test,test
+88,3,0.8,0,Initial Test,test
+88,4,0.6,0,Initial Test,test
+90,0,0.5,0,Initial Test,test
+90,1,1.0,0,Initial Test,test
+90,2,0.9,0,Initial Test,test
+90,3,0.8,0,Initial Test,test
+90,4,0.7,0,Initial Test,test
+92,0,0.5,0,Initial Test,test
+92,1,0.2,0,Initial Test,test
+92,2,0.8,0,Initial Test,test
+92,3,0.6,0,Initial Test,test
+92,4,0.6,0,Initial Test,test
+93,0,1.0,0,Initial Test,test
+93,1,1.0,0,Initial Test,test
+93,2,0.9,0,Initial Test,test
+93,3,0.8,0,Initial Test,test
+93,4,0.8,0,Initial Test,test
+95,0,0.5,0,Initial Test,test
+95,1,0.6,0,Initial Test,test
+95,2,0.7,0,Initial Test,test
+95,3,0.7,0,Initial Test,test
+95,4,0.6,0,Initial Test,test
+96,0,1.0,0,Initial Test,test
+96,1,0.8,0,Initial Test,test
+96,2,0.7,0,Initial Test,test
+96,3,0.6,0,Initial Test,test
+96,4,0.6,0,Initial Test,test
+98,0,0.5,0,Initial Test,test
+98,1,0.6,0,Initial Test,test
+98,2,0.7,0,Initial Test,test
+98,3,0.8,0,Initial Test,test
+98,4,0.5,0,Initial Test,test
+103,0,1.0,0,Initial Test,test
+103,1,0.9,0,Initial Test,test
+103,2,0.8,0,Initial Test,test
+103,3,0.8,0,Initial Test,test
+103,4,0.6,0,Initial Test,test
+104,0,0.5,0,Initial Test,test
+104,1,0.8,0,Initial Test,test
+104,2,0.8,0,Initial Test,test
+104,3,0.6,0,Initial Test,test
+104,4,0.5,0,Initial Test,test
+106,0,1.0,0,Initial Test,test
+106,1,0.8,0,Initial Test,test
+106,2,0.6,0,Initial Test,test
+106,3,0.4,0,Initial Test,test
+106,4,0.5,0,Initial Test,test
+109,0,1.0,0,Initial Test,test
+109,1,0.8,0,Initial Test,test
+109,2,0.7,0,Initial Test,test
+109,3,0.7,0,Initial Test,test
+109,4,0.6,0,Initial Test,test
+112,0,1.0,0,Initial Test,test
+112,1,0.8,0,Initial Test,test
+112,2,0.8,0,Initial Test,test
+112,3,0.8,0,Initial Test,test
+112,4,0.8,0,Initial Test,test
+113,0,1.0,0,Initial Test,test
+113,1,0.9,0,Initial Test,test
+113,2,0.7,0,Initial Test,test
+113,3,0.7,0,Initial Test,test
+113,4,0.6,0,Initial Test,test
+8,0,1.0,1,1 Week Retest,test
+8,1,0.9,1,1 Week Retest,test
+8,2,0.9,1,1 Week Retest,test
+8,3,0.7,1,1 Week Retest,test
+8,4,0.3,1,1 Week Retest,test
+12,0,1.0,1,1 Week Retest,test
+12,1,1.0,1,1 Week Retest,test
+12,2,1.0,1,1 Week Retest,test
+12,3,1.0,1,1 Week Retest,test
+12,4,0.8,1,1 Week Retest,test
+20,0,1.0,1,1 Week Retest,test
+20,1,1.0,1,1 Week Retest,test
+20,2,0.8,1,1 Week Retest,test
+20,3,0.7,1,1 Week Retest,test
+20,4,0.4,1,1 Week Retest,test
+23,0,1.0,1,1 Week Retest,test
+23,1,0.8,1,1 Week Retest,test
+23,2,0.9,1,1 Week Retest,test
+23,3,0.5,1,1 Week Retest,test
+23,4,0.8,1,1 Week Retest,test
+24,0,1.0,1,1 Week Retest,test
+24,1,0.9,1,1 Week Retest,test
+24,2,0.6,1,1 Week Retest,test
+24,3,0.6,1,1 Week Retest,test
+24,4,0.1,1,1 Week Retest,test
+29,0,1.0,1,1 Week Retest,test
+29,1,1.0,1,1 Week Retest,test
+29,2,0.8,1,1 Week Retest,test
+29,3,0.7,1,1 Week Retest,test
+29,4,0.4,1,1 Week Retest,test
+30,0,1.0,1,1 Week Retest,test
+30,1,0.8,1,1 Week Retest,test
+30,2,0.5,1,1 Week Retest,test
+30,3,0.8,1,1 Week Retest,test
+30,4,0.7,1,1 Week Retest,test
+31,0,1.0,1,1 Week Retest,test
+31,1,0.8,1,1 Week Retest,test
+31,2,0.7,1,1 Week Retest,test
+31,3,0.5,1,1 Week Retest,test
+31,4,0.5,1,1 Week Retest,test
+33,0,0.5,1,1 Week Retest,test
+33,1,0.7,1,1 Week Retest,test
+33,2,0.5,1,1 Week Retest,test
+33,3,0.7,1,1 Week Retest,test
+33,4,0.4,1,1 Week Retest,test
+34,0,0.5,1,1 Week Retest,test
+34,1,0.2,1,1 Week Retest,test
+34,2,0.5,1,1 Week Retest,test
+34,3,0.9,1,1 Week Retest,test
+34,4,0.6,1,1 Week Retest,test
+35,0,1.0,1,1 Week Retest,test
+35,1,0.9,1,1 Week Retest,test
+35,2,0.7,1,1 Week Retest,test
+35,3,0.5,1,1 Week Retest,test
+35,4,0.5,1,1 Week Retest,test
+36,0,0.5,1,1 Week Retest,test
+36,1,0.4,1,1 Week Retest,test
+36,2,0.7,1,1 Week Retest,test
+36,3,0.6,1,1 Week Retest,test
+36,4,0.5,1,1 Week Retest,test
+37,0,1.0,1,1 Week Retest,test
+37,1,0.7,1,1 Week Retest,test
+37,2,0.7,1,1 Week Retest,test
+37,3,0.6,1,1 Week Retest,test
+37,4,0.8,1,1 Week Retest,test
+38,0,1.0,1,1 Week Retest,test
+38,1,1.0,1,1 Week Retest,test
+38,2,0.9,1,1 Week Retest,test
+38,3,0.7,1,1 Week Retest,test
+38,4,0.7,1,1 Week Retest,test
+41,0,1.0,1,1 Week Retest,test
+41,1,0.6,1,1 Week Retest,test
+41,2,0.7,1,1 Week Retest,test
+41,3,0.8,1,1 Week Retest,test
+41,4,0.4,1,1 Week Retest,test
+46,0,1.0,1,1 Week Retest,test
+46,1,0.7,1,1 Week Retest,test
+46,2,0.8,1,1 Week Retest,test
+46,3,0.9,1,1 Week Retest,test
+46,4,0.5,1,1 Week Retest,test
+47,0,1.0,1,1 Week Retest,test
+47,1,1.0,1,1 Week Retest,test
+47,2,0.9,1,1 Week Retest,test
+47,3,0.7,1,1 Week Retest,test
+47,4,0.5,1,1 Week Retest,test
+49,0,1.0,1,1 Week Retest,test
+49,1,0.8,1,1 Week Retest,test
+49,2,0.9,1,1 Week Retest,test
+49,3,0.4,1,1 Week Retest,test
+49,4,0.7,1,1 Week Retest,test
+51,0,1.0,1,1 Week Retest,test
+51,1,1.0,1,1 Week Retest,test
+51,2,0.8,1,1 Week Retest,test
+51,3,0.7,1,1 Week Retest,test
+51,4,0.4,1,1 Week Retest,test
+52,0,1.0,1,1 Week Retest,test
+52,1,0.9,1,1 Week Retest,test
+52,2,1.0,1,1 Week Retest,test
+52,3,0.7,1,1 Week Retest,test
+52,4,0.3,1,1 Week Retest,test
+53,0,1.0,1,1 Week Retest,test
+53,1,0.9,1,1 Week Retest,test
+53,2,0.8,1,1 Week Retest,test
+53,3,0.6,1,1 Week Retest,test
+53,4,0.6,1,1 Week Retest,test
+55,0,1.0,1,1 Week Retest,test
+55,1,0.9,1,1 Week Retest,test
+55,2,0.8,1,1 Week Retest,test
+55,3,0.8,1,1 Week Retest,test
+55,4,0.7,1,1 Week Retest,test
+57,0,1.0,1,1 Week Retest,test
+57,1,0.6,1,1 Week Retest,test
+57,2,0.9,1,1 Week Retest,test
+57,3,0.7,1,1 Week Retest,test
+57,4,0.5,1,1 Week Retest,test
+58,0,1.0,1,1 Week Retest,test
+58,1,0.7,1,1 Week Retest,test
+58,2,0.8,1,1 Week Retest,test
+58,3,0.4,1,1 Week Retest,test
+58,4,0.4,1,1 Week Retest,test
+59,0,1.0,1,1 Week Retest,test
+59,1,0.9,1,1 Week Retest,test
+59,2,0.9,1,1 Week Retest,test
+59,3,0.6,1,1 Week Retest,test
+59,4,0.4,1,1 Week Retest,test
+61,0,1.0,1,1 Week Retest,test
+61,1,1.0,1,1 Week Retest,test
+61,2,0.8,1,1 Week Retest,test
+61,3,0.7,1,1 Week Retest,test
+61,4,0.5,1,1 Week Retest,test
+64,0,1.0,1,1 Week Retest,test
+64,1,0.8,1,1 Week Retest,test
+64,2,0.6,1,1 Week Retest,test
+64,3,0.5,1,1 Week Retest,test
+64,4,0.6,1,1 Week Retest,test
+66,0,1.0,1,1 Week Retest,test
+66,1,0.4,1,1 Week Retest,test
+66,2,0.7,1,1 Week Retest,test
+66,3,0.9,1,1 Week Retest,test
+66,4,0.4,1,1 Week Retest,test
+70,0,1.0,1,1 Week Retest,test
+70,1,1.0,1,1 Week Retest,test
+70,2,0.8,1,1 Week Retest,test
+70,3,0.8,1,1 Week Retest,test
+70,4,0.3,1,1 Week Retest,test
+71,0,1.0,1,1 Week Retest,test
+71,1,1.0,1,1 Week Retest,test
+71,2,0.8,1,1 Week Retest,test
+71,3,0.7,1,1 Week Retest,test
+71,4,0.4,1,1 Week Retest,test
+74,0,1.0,1,1 Week Retest,test
+74,1,0.9,1,1 Week Retest,test
+74,2,0.7,1,1 Week Retest,test
+74,3,0.8,1,1 Week Retest,test
+74,4,0.7,1,1 Week Retest,test
+75,0,1.0,1,1 Week Retest,test
+75,1,0.8,1,1 Week Retest,test
+75,2,0.5,1,1 Week Retest,test
+75,3,0.8,1,1 Week Retest,test
+75,4,0.7,1,1 Week Retest,test
+80,0,1.0,1,1 Week Retest,test
+80,1,0.8,1,1 Week Retest,test
+80,2,1.0,1,1 Week Retest,test
+80,3,0.5,1,1 Week Retest,test
+80,4,0.8,1,1 Week Retest,test
+81,0,1.0,1,1 Week Retest,test
+81,1,0.8,1,1 Week Retest,test
+81,2,0.8,1,1 Week Retest,test
+81,3,0.4,1,1 Week Retest,test
+81,4,0.5,1,1 Week Retest,test
+82,0,1.0,1,1 Week Retest,test
+82,1,0.9,1,1 Week Retest,test
+82,2,0.7,1,1 Week Retest,test
+82,3,0.5,1,1 Week Retest,test
+82,4,0.5,1,1 Week Retest,test
+83,0,1.0,1,1 Week Retest,test
+83,1,1.0,1,1 Week Retest,test
+83,2,0.8,1,1 Week Retest,test
+83,3,0.7,1,1 Week Retest,test
+83,4,0.4,1,1 Week Retest,test
+86,0,1.0,1,1 Week Retest,test
+86,1,0.8,1,1 Week Retest,test
+86,2,0.9,1,1 Week Retest,test
+86,3,0.7,1,1 Week Retest,test
+86,4,0.3,1,1 Week Retest,test
+87,0,0.0,1,1 Week Retest,test
+87,1,0.5,1,1 Week Retest,test
+87,2,0.5,1,1 Week Retest,test
+87,3,0.5,1,1 Week Retest,test
+87,4,0.7,1,1 Week Retest,test
+88,0,1.0,1,1 Week Retest,test
+88,1,0.9,1,1 Week Retest,test
+88,2,0.8,1,1 Week Retest,test
+88,3,0.7,1,1 Week Retest,test
+88,4,0.5,1,1 Week Retest,test
+90,0,1.0,1,1 Week Retest,test
+90,1,0.7,1,1 Week Retest,test
+90,2,0.9,1,1 Week Retest,test
+90,3,0.7,1,1 Week Retest,test
+90,4,0.3,1,1 Week Retest,test
+92,0,1.0,1,1 Week Retest,test
+92,1,1.0,1,1 Week Retest,test
+92,2,0.8,1,1 Week Retest,test
+92,3,0.8,1,1 Week Retest,test
+92,4,0.5,1,1 Week Retest,test
+93,0,1.0,1,1 Week Retest,test
+93,1,1.0,1,1 Week Retest,test
+93,2,0.8,1,1 Week Retest,test
+93,3,0.7,1,1 Week Retest,test
+93,4,0.5,1,1 Week Retest,test
+95,0,1.0,1,1 Week Retest,test
+95,1,0.7,1,1 Week Retest,test
+95,2,0.9,1,1 Week Retest,test
+95,3,0.3,1,1 Week Retest,test
+95,4,0.6,1,1 Week Retest,test
+96,0,1.0,1,1 Week Retest,test
+96,1,0.8,1,1 Week Retest,test
+96,2,0.9,1,1 Week Retest,test
+96,3,0.7,1,1 Week Retest,test
+96,4,0.3,1,1 Week Retest,test
+98,0,1.0,1,1 Week Retest,test
+98,1,0.9,1,1 Week Retest,test
+98,2,0.7,1,1 Week Retest,test
+98,3,0.4,1,1 Week Retest,test
+98,4,0.5,1,1 Week Retest,test
+103,0,1.0,1,1 Week Retest,test
+103,1,0.8,1,1 Week Retest,test
+103,2,0.8,1,1 Week Retest,test
+103,3,0.7,1,1 Week Retest,test
+103,4,0.3,1,1 Week Retest,test
+104,0,1.0,1,1 Week Retest,test
+104,1,0.9,1,1 Week Retest,test
+104,2,0.8,1,1 Week Retest,test
+104,3,0.6,1,1 Week Retest,test
+104,4,0.7,1,1 Week Retest,test
+106,0,1.0,1,1 Week Retest,test
+106,1,0.9,1,1 Week Retest,test
+106,2,0.8,1,1 Week Retest,test
+106,3,0.6,1,1 Week Retest,test
+106,4,0.7,1,1 Week Retest,test
+109,0,1.0,1,1 Week Retest,test
+109,1,0.8,1,1 Week Retest,test
+109,2,0.9,1,1 Week Retest,test
+109,3,0.7,1,1 Week Retest,test
+109,4,0.3,1,1 Week Retest,test
+112,0,1.0,1,1 Week Retest,test
+112,1,0.5,1,1 Week Retest,test
+112,2,0.7,1,1 Week Retest,test
+112,3,0.7,1,1 Week Retest,test
+112,4,0.6,1,1 Week Retest,test
+113,0,1.0,1,1 Week Retest,test
+113,1,1.0,1,1 Week Retest,test
+113,2,1.0,1,1 Week Retest,test
+113,3,0.9,1,1 Week Retest,test
+113,4,0.7,1,1 Week Retest,test
+8,0,1.0,2,Final Retest,test
+8,1,0.9,2,Final Retest,test
+8,2,0.7,2,Final Retest,test
+8,3,0.9,2,Final Retest,test
+8,4,0.6,2,Final Retest,test
+12,0,1.0,2,Final Retest,test
+12,1,1.0,2,Final Retest,test
+12,2,0.7,2,Final Retest,test
+12,3,0.8,2,Final Retest,test
+12,4,0.8,2,Final Retest,test
+20,0,1.0,2,Final Retest,test
+20,1,0.9,2,Final Retest,test
+20,2,0.7,2,Final Retest,test
+20,3,0.5,2,Final Retest,test
+20,4,0.5,2,Final Retest,test
+23,0,1.0,2,Final Retest,test
+23,1,0.7,2,Final Retest,test
+23,2,0.8,2,Final Retest,test
+23,3,0.7,2,Final Retest,test
+23,4,0.7,2,Final Retest,test
+24,0,1.0,2,Final Retest,test
+24,1,1.0,2,Final Retest,test
+24,2,0.6,2,Final Retest,test
+24,3,0.7,2,Final Retest,test
+24,4,0.5,2,Final Retest,test
+29,0,1.0,2,Final Retest,test
+29,1,0.9,2,Final Retest,test
+29,2,0.7,2,Final Retest,test
+29,3,0.5,2,Final Retest,test
+29,4,0.4,2,Final Retest,test
+30,0,1.0,2,Final Retest,test
+30,1,0.9,2,Final Retest,test
+30,2,0.8,2,Final Retest,test
+30,3,0.7,2,Final Retest,test
+30,4,0.6,2,Final Retest,test
+31,0,1.0,2,Final Retest,test
+31,1,1.0,2,Final Retest,test
+31,2,0.9,2,Final Retest,test
+31,3,1.0,2,Final Retest,test
+31,4,0.6,2,Final Retest,test
+33,0,1.0,2,Final Retest,test
+33,1,0.9,2,Final Retest,test
+33,2,0.6,2,Final Retest,test
+33,3,0.3,2,Final Retest,test
+33,4,0.5,2,Final Retest,test
+34,0,1.0,2,Final Retest,test
+34,1,0.8,2,Final Retest,test
+34,2,0.7,2,Final Retest,test
+34,3,0.7,2,Final Retest,test
+34,4,0.6,2,Final Retest,test
+35,0,1.0,2,Final Retest,test
+35,1,0.9,2,Final Retest,test
+35,2,0.7,2,Final Retest,test
+35,3,0.7,2,Final Retest,test
+35,4,0.6,2,Final Retest,test
+36,0,1.0,2,Final Retest,test
+36,1,0.9,2,Final Retest,test
+36,2,0.7,2,Final Retest,test
+36,3,0.5,2,Final Retest,test
+36,4,0.5,2,Final Retest,test
+37,0,1.0,2,Final Retest,test
+37,1,1.0,2,Final Retest,test
+37,2,0.9,2,Final Retest,test
+37,3,0.7,2,Final Retest,test
+37,4,0.5,2,Final Retest,test
+38,0,1.0,2,Final Retest,test
+38,1,1.0,2,Final Retest,test
+38,2,0.6,2,Final Retest,test
+38,3,0.7,2,Final Retest,test
+38,4,0.7,2,Final Retest,test
+41,0,1.0,2,Final Retest,test
+41,1,0.9,2,Final Retest,test
+41,2,0.8,2,Final Retest,test
+41,3,0.8,2,Final Retest,test
+41,4,0.6,2,Final Retest,test
+46,0,1.0,2,Final Retest,test
+46,1,0.9,2,Final Retest,test
+46,2,0.7,2,Final Retest,test
+46,3,0.9,2,Final Retest,test
+46,4,0.6,2,Final Retest,test
+47,0,1.0,2,Final Retest,test
+47,1,1.0,2,Final Retest,test
+47,2,0.6,2,Final Retest,test
+47,3,0.7,2,Final Retest,test
+47,4,0.6,2,Final Retest,test
+49,0,1.0,2,Final Retest,test
+49,1,1.0,2,Final Retest,test
+49,2,0.6,2,Final Retest,test
+49,3,0.7,2,Final Retest,test
+49,4,0.6,2,Final Retest,test
+51,0,1.0,2,Final Retest,test
+51,1,0.8,2,Final Retest,test
+51,2,0.8,2,Final Retest,test
+51,3,0.9,2,Final Retest,test
+51,4,0.6,2,Final Retest,test
+52,0,1.0,2,Final Retest,test
+52,1,1.0,2,Final Retest,test
+52,2,0.6,2,Final Retest,test
+52,3,0.7,2,Final Retest,test
+52,4,0.6,2,Final Retest,test
+53,0,1.0,2,Final Retest,test
+53,1,1.0,2,Final Retest,test
+53,2,0.6,2,Final Retest,test
+53,3,0.7,2,Final Retest,test
+53,4,0.7,2,Final Retest,test
+55,0,1.0,2,Final Retest,test
+55,1,0.9,2,Final Retest,test
+55,2,0.8,2,Final Retest,test
+55,3,0.8,2,Final Retest,test
+55,4,0.7,2,Final Retest,test
+57,0,1.0,2,Final Retest,test
+57,1,0.9,2,Final Retest,test
+57,2,0.7,2,Final Retest,test
+57,3,0.6,2,Final Retest,test
+57,4,0.5,2,Final Retest,test
+58,0,1.0,2,Final Retest,test
+58,1,0.8,2,Final Retest,test
+58,2,0.9,2,Final Retest,test
+58,3,0.7,2,Final Retest,test
+58,4,0.6,2,Final Retest,test
+59,0,1.0,2,Final Retest,test
+59,1,0.8,2,Final Retest,test
+59,2,0.9,2,Final Retest,test
+59,3,0.7,2,Final Retest,test
+59,4,0.6,2,Final Retest,test
+61,0,1.0,2,Final Retest,test
+61,1,0.9,2,Final Retest,test
+61,2,0.7,2,Final Retest,test
+61,3,0.5,2,Final Retest,test
+61,4,0.5,2,Final Retest,test
+64,0,0.0,2,Final Retest,test
+64,1,0.4,2,Final Retest,test
+64,2,0.7,2,Final Retest,test
+64,3,0.7,2,Final Retest,test
+64,4,0.6,2,Final Retest,test
+66,0,1.0,2,Final Retest,test
+66,1,0.8,2,Final Retest,test
+66,2,0.7,2,Final Retest,test
+66,3,0.8,2,Final Retest,test
+66,4,0.6,2,Final Retest,test
+70,0,1.0,2,Final Retest,test
+70,1,0.9,2,Final Retest,test
+70,2,0.7,2,Final Retest,test
+70,3,0.7,2,Final Retest,test
+70,4,0.7,2,Final Retest,test
+71,0,1.0,2,Final Retest,test
+71,1,1.0,2,Final Retest,test
+71,2,0.6,2,Final Retest,test
+71,3,0.7,2,Final Retest,test
+71,4,0.6,2,Final Retest,test
+74,0,1.0,2,Final Retest,test
+74,1,1.0,2,Final Retest,test
+74,2,0.8,2,Final Retest,test
+74,3,0.7,2,Final Retest,test
+74,4,0.7,2,Final Retest,test
+75,0,1.0,2,Final Retest,test
+75,1,0.8,2,Final Retest,test
+75,2,0.8,2,Final Retest,test
+75,3,0.7,2,Final Retest,test
+75,4,0.7,2,Final Retest,test
+80,0,1.0,2,Final Retest,test
+80,1,1.0,2,Final Retest,test
+80,2,0.5,2,Final Retest,test
+80,3,0.7,2,Final Retest,test
+80,4,0.7,2,Final Retest,test
+81,0,1.0,2,Final Retest,test
+81,1,0.8,2,Final Retest,test
+81,2,0.6,2,Final Retest,test
+81,3,1.0,2,Final Retest,test
+81,4,0.6,2,Final Retest,test
+82,0,1.0,2,Final Retest,test
+82,1,1.0,2,Final Retest,test
+82,2,0.9,2,Final Retest,test
+82,3,0.8,2,Final Retest,test
+82,4,0.7,2,Final Retest,test
+83,0,0.5,2,Final Retest,test
+83,1,0.8,2,Final Retest,test
+83,2,0.7,2,Final Retest,test
+83,3,0.5,2,Final Retest,test
+83,4,0.5,2,Final Retest,test
+86,0,1.0,2,Final Retest,test
+86,1,0.9,2,Final Retest,test
+86,2,0.6,2,Final Retest,test
+86,3,0.8,2,Final Retest,test
+86,4,0.7,2,Final Retest,test
+87,0,1.0,2,Final Retest,test
+87,1,0.9,2,Final Retest,test
+87,2,0.8,2,Final Retest,test
+87,3,0.6,2,Final Retest,test
+87,4,0.5,2,Final Retest,test
+88,0,1.0,2,Final Retest,test
+88,1,0.8,2,Final Retest,test
+88,2,0.7,2,Final Retest,test
+88,3,0.8,2,Final Retest,test
+88,4,0.6,2,Final Retest,test
+90,0,1.0,2,Final Retest,test
+90,1,0.9,2,Final Retest,test
+90,2,0.6,2,Final Retest,test
+90,3,0.9,2,Final Retest,test
+90,4,0.7,2,Final Retest,test
+92,0,1.0,2,Final Retest,test
+92,1,1.0,2,Final Retest,test
+92,2,0.7,2,Final Retest,test
+92,3,0.5,2,Final Retest,test
+92,4,0.4,2,Final Retest,test
+93,0,1.0,2,Final Retest,test
+93,1,1.0,2,Final Retest,test
+93,2,0.6,2,Final Retest,test
+93,3,0.7,2,Final Retest,test
+93,4,0.6,2,Final Retest,test
+95,0,1.0,2,Final Retest,test
+95,1,0.9,2,Final Retest,test
+95,2,0.6,2,Final Retest,test
+95,3,0.6,2,Final Retest,test
+95,4,0.6,2,Final Retest,test
+96,0,1.0,2,Final Retest,test
+96,1,0.6,2,Final Retest,test
+96,2,0.9,2,Final Retest,test
+96,3,0.8,2,Final Retest,test
+96,4,0.7,2,Final Retest,test
+98,0,1.0,2,Final Retest,test
+98,1,0.9,2,Final Retest,test
+98,2,0.9,2,Final Retest,test
+98,3,0.7,2,Final Retest,test
+98,4,0.6,2,Final Retest,test
+103,0,1.0,2,Final Retest,test
+103,1,1.0,2,Final Retest,test
+103,2,0.7,2,Final Retest,test
+103,3,0.8,2,Final Retest,test
+103,4,0.7,2,Final Retest,test
+104,0,1.0,2,Final Retest,test
+104,1,0.9,2,Final Retest,test
+104,2,0.8,2,Final Retest,test
+104,3,0.9,2,Final Retest,test
+104,4,0.5,2,Final Retest,test
+106,0,1.0,2,Final Retest,test
+106,1,1.0,2,Final Retest,test
+106,2,0.6,2,Final Retest,test
+106,3,0.7,2,Final Retest,test
+106,4,0.6,2,Final Retest,test
+109,0,1.0,2,Final Retest,test
+109,1,0.9,2,Final Retest,test
+109,2,0.4,2,Final Retest,test
+109,3,0.9,2,Final Retest,test
+109,4,0.6,2,Final Retest,test
+112,0,1.0,2,Final Retest,test
+112,1,1.0,2,Final Retest,test
+112,2,0.7,2,Final Retest,test
+112,3,0.4,2,Final Retest,test
+112,4,0.5,2,Final Retest,test
+113,0,1.0,2,Final Retest,test
+113,1,0.9,2,Final Retest,test
+113,2,0.8,2,Final Retest,test
+113,3,0.7,2,Final Retest,test
+113,4,0.7,2,Final Retest,test

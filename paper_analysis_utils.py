@@ -8,6 +8,7 @@ from a fresh kernel without hidden state.
 from __future__ import annotations
 
 import os
+import warnings
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
@@ -18,8 +19,8 @@ import pandas as pd
 import pingouin as pg
 import seaborn as sns
 import statsmodels.formula.api as smf
+from patsy import dmatrix
 from scipy.stats import linregress, nct, norm, pearsonr, t, ttest_rel
-from statsmodels.stats.anova import anova_lm
 from statsmodels.stats.multitest import multipletests
 
 from analysisfunctions import (
@@ -45,6 +46,21 @@ TASK_METRICS = [
     "outcome_variance",
     "rewarded_score",
 ]
+
+STRATEGY_FORMULAS = {
+    "additive": "C(classification_strategy) + C(decision_strategy) + C(test)",
+    "two_way": "(C(classification_strategy) + C(decision_strategy) + C(test)) ** 2",
+    "full_factorial": "C(classification_strategy) * C(decision_strategy) * C(test)",
+}
+
+STRATEGY_TERM_LABELS = {
+    "C(classification_strategy)": "Classification strategy",
+    "C(decision_strategy)": "Decision strategy",
+    "C(test)": "Session",
+    "C(classification_strategy):C(decision_strategy)": "Classification x Decision",
+    "C(classification_strategy):C(test)": "Classification x Session",
+    "C(decision_strategy):C(test)": "Decision x Session",
+}
 
 TEST_LABELS = {
     0: "Initial Test",
@@ -295,6 +311,16 @@ def calibration_change_tests(task_summaries: pd.DataFrame) -> tuple[pd.DataFrame
 
 
 def icc_table(task_summaries: pd.DataFrame, metrics: Iterable[str] = TASK_METRICS) -> pd.DataFrame:
+    """ICC(2,k): absolute agreement of the mean across the k administrations.
+
+    This is not the reliability of a single administration. Retain Pingouin's
+    existing intervals, and export their bounds separately for tables/figures.
+    """
+    if task_summaries.duplicated(["subject_id", "test"]).any():
+        raise ValueError("ICC requires one observation per participant and administration.")
+    k = task_summaries["test"].nunique()
+    if not task_summaries.groupby("subject_id")["test"].nunique().eq(k).all():
+        raise ValueError("ICC requires the same administrations for every participant.")
     rows = []
     for metric in metrics:
         icc = pg.intraclass_corr(
@@ -309,10 +335,16 @@ def icc_table(task_summaries: pd.DataFrame, metrics: Iterable[str] = TASK_METRIC
                 "metric": metric,
                 "metric_label": METRIC_LABELS[metric],
                 "icc_type": selected["Type"],
+                "icc_model": "Two-way random effects, absolute agreement",
+                "unit": f"Mean of {k} administrations",
+                "k": k,
+                "n_subjects": task_summaries["subject_id"].nunique(),
                 "icc": selected["ICC"],
                 "f": selected["F"],
                 "p": selected["pval"],
                 "ci95": selected["CI95%"],
+                "ci95_low": float(selected["CI95%"][0]),
+                "ci95_high": float(selected["CI95%"][1]),
             }
         )
     return pd.DataFrame(rows)
@@ -366,7 +398,8 @@ def get_retest_distances(df: pd.DataFrame, retest: int) -> np.ndarray:
 
 
 def add_feature_distance(df: pd.DataFrame, test: int) -> pd.DataFrame:
-    data_slice = df.loc[df["use"] == "task"].copy()
+    """Feature distances for main-task testing trials, excluding training/tutorials."""
+    data_slice = df.loc[(df["use"] == "task") & (df["block"] == "test")].copy()
     if test == 0:
         data_slice.loc[data_slice["name"].str.contains("prototype"), "distance"] = 0
         for distance in [1, 2, 3, 4]:
@@ -378,6 +411,7 @@ def add_feature_distance(df: pd.DataFrame, test: int) -> pd.DataFrame:
 
 
 def fit_distance_models(data: PaperData, subject_ids: Iterable[float] | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Fit each session's participant random-intercept model on testing trials only."""
     subject_ids = None if subject_ids is None else set(subject_ids)
     model_rows = []
     grouped_frames = []
@@ -389,19 +423,40 @@ def fit_distance_models(data: PaperData, subject_ids: Iterable[float] | None = N
         grouped = data_slice.groupby(["subject_id", "distance"])["correct"].mean().reset_index()
         grouped["test"] = test
         grouped["test_label"] = TEST_LABELS[test]
+        grouped["block"] = "test"
         grouped_frames.append(grouped)
 
-        result = smf.mixedlm("correct ~ distance", grouped, groups=grouped["subject_id"]).fit()
+        model = smf.mixedlm("correct ~ distance", grouped, groups=grouped["subject_id"])
+        if np.linalg.matrix_rank(model.exog) != model.exog.shape[1]:
+            raise ValueError(f"Feature-distance design is rank deficient for session {test}.")
+        with warnings.catch_warnings(record=True) as fit_warnings:
+            warnings.simplefilter("always")
+            result = model.fit()
+        if not result.converged or not np.isfinite(result.params).all():
+            raise RuntimeError(f"Feature-distance model did not converge for session {test}.")
+        covariance = result.cov_params().loc[result.fe_params.index, result.fe_params.index].to_numpy()
+        if not np.isfinite(covariance).all() or np.linalg.eigvalsh(covariance).min() <= 0:
+            raise RuntimeError(f"Invalid feature-distance fixed-effect covariance for session {test}.")
+        distance_ci = result.conf_int().loc["distance"]
         model_rows.append(
             {
                 "test": test,
                 "test_label": TEST_LABELS[test],
+                "block": "test",
                 "n_subjects": grouped["subject_id"].nunique(),
+                "n_source_rows": len(data_slice),
+                "n_unique_trials": len(data_slice.drop_duplicates(["subject_id", "trial_number"])),
                 "distance_slope": result.params["distance"],
                 "distance_se": result.bse["distance"],
                 "distance_z": result.tvalues["distance"],
                 "distance_p": result.pvalues["distance"],
+                "distance_ci95_low": distance_ci.iloc[0],
+                "distance_ci95_high": distance_ci.iloc[1],
                 "scale": result.scale,
+                "random_intercept_variance": result.cov_re.iloc[0, 0],
+                "random_to_residual_variance": result.cov_re.iloc[0, 0] / result.scale,
+                "converged": result.converged,
+                "warnings": " | ".join(dict.fromkeys(str(w.message) for w in fit_warnings)),
             }
         )
     return pd.DataFrame(model_rows), pd.concat(grouped_frames, ignore_index=True)
@@ -628,12 +683,17 @@ def plot_icc_reliability(task_summaries: pd.DataFrame, icc: pd.DataFrame, path: 
         label = METRIC_LABELS[metric]
         sns.violinplot(data=plot_df, x="test_label", y=label, color="lightgray", ax=axes[i])
         sns.stripplot(data=plot_df, x="test_label", y=label, color="black", alpha=0.35, size=2, ax=axes[i])
-        value = icc.loc[icc["metric"] == metric, "icc"].iloc[0]
-        axes[i].set_title(f"{label}, ICC2k={value:.2f}")
+        estimate = icc.loc[icc["metric"] == metric].iloc[0]
+        axes[i].set_title(
+            f"{label}\nICC(2,{int(estimate['k'])})={estimate['icc']:.2f} "
+            f"(95% CI {estimate['ci95_low']:.2f} to {estimate['ci95_high']:.2f})",
+            fontsize=10,
+        )
         axes[i].set_xlabel("")
         axes[i].tick_params(axis="x", rotation=30)
     sns.despine()
-    fig.tight_layout()
+    fig.suptitle("Reliability of the mean across three administrations", fontsize=12)
+    fig.tight_layout(rect=(0, 0, 1, 0.95))
     fig.savefig(path, dpi=300, bbox_inches="tight")
     return fig
 
@@ -691,7 +751,8 @@ def plot_distance_regression(grouped_distance: pd.DataFrame, path: str | Path):
         hist_ax.set_xlabel("Subject Slope")
         hist_ax.set_ylabel("Count")
     sns.despine()
-    fig.tight_layout()
+    fig.suptitle(f"Testing trials only (N={grouped_distance['subject_id'].nunique()})", fontsize=12)
+    fig.tight_layout(rect=(0, 0, 1, 0.95))
     fig.savefig(path, dpi=300, bbox_inches="tight")
     return fig
 
@@ -716,85 +777,157 @@ def strategy_metric_table(data: PaperData, task_summaries: pd.DataFrame) -> pd.D
     wide["classification_strategy"] = wide["strategy_classification"].map(STRATEGY_RESPONSE_LABELS)
     wide["decision_strategy"] = wide["decision_process"].map(STRATEGY_RESPONSE_LABELS)
     return wide[["subject_id", "test", "classification_strategy", "decision_strategy"]].merge(
-        task_summaries, on=["subject_id", "test"]
+        task_summaries, on=["subject_id", "test"], validate="one_to_one"
     )
 
 
-def strategy_metric_anova(
+def _strategy_analysis_rows(
     strategy_metrics: pd.DataFrame,
-    metrics: Iterable[str] = TASK_METRICS,
     exclude_singletons: Iterable[str] = ("Wrote down",),
 ) -> pd.DataFrame:
-    """Type II ANOVA per task metric with classification strategy, decision strategy,
-    test number, and all interactions as categorical predictors (Supplemental Table 1).
-
-    Responses given by a single participant-session (by default the one "Wrote down"
-    report) are excluded so the factorial design is estimable.
-    """
+    """Keep the established singleton exclusion; check rank separately."""
+    excluded = set(exclude_singletons)
     df = strategy_metrics.loc[
-        ~strategy_metrics["classification_strategy"].isin(set(exclude_singletons))
-        & ~strategy_metrics["decision_strategy"].isin(set(exclude_singletons))
+        ~strategy_metrics["classification_strategy"].isin(excluded)
+        & ~strategy_metrics["decision_strategy"].isin(excluded)
     ].copy()
-    term_labels = {
-        "C(classification_strategy)": "Classification strategy",
-        "C(decision_strategy)": "Decision strategy",
-        "C(test)": "Test number",
-        "C(classification_strategy):C(decision_strategy)": "Classification x Decision",
-        "C(classification_strategy):C(test)": "Classification x Test",
-        "C(decision_strategy):C(test)": "Decision x Test",
-        "C(classification_strategy):C(decision_strategy):C(test)": "Classification x Decision x Test",
-        "Residual": "Residual",
-    }
-    rows = []
+    if df.empty or df[["subject_id", "test", "classification_strategy", "decision_strategy"]].isna().any().any():
+        raise ValueError("Strategy analysis requires nonmissing participant, session, and strategy values.")
+    if df.duplicated(["subject_id", "test"]).any():
+        raise ValueError("Strategy analysis requires one row per participant and session.")
+    return df
+
+
+def strategy_design_audit(strategy_metrics: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Report all cells (including zeros) and ranks before model fitting.
+
+    Lower-order models impose restrictions on interactions; their full rank
+    does not make all effects in the original saturated model estimable.
+    """
+    df = _strategy_analysis_rows(strategy_metrics)
+    factors = ["classification_strategy", "decision_strategy", "test"]
+    index = pd.MultiIndex.from_product([sorted(df[c].unique()) for c in factors], names=factors)
+    cells = df.groupby(factors).size().reindex(index, fill_value=0).rename("n").reset_index()
+    audits = []
+    for name, formula in STRATEGY_FORMULAS.items():
+        design = dmatrix(formula, df, NA_action="raise", return_type="dataframe")
+        rank = np.linalg.matrix_rank(design)
+        audits.append({
+            "model": name, "formula": formula, "n_rows": len(df),
+            "n_subjects": df["subject_id"].nunique(),
+            "n_excluded_rows": len(strategy_metrics) - len(df),
+            "n_columns": design.shape[1], "rank": rank,
+            "rank_deficiency": design.shape[1] - rank,
+            "full_rank": rank == design.shape[1],
+            "condition_number": np.linalg.cond(design),
+            "possible_cells": len(cells), "observed_cells": int(cells["n"].gt(0).sum()),
+        })
+    return pd.DataFrame(audits), cells
+
+
+def strategy_metric_models(
+    strategy_metrics: pd.DataFrame,
+    metrics: Iterable[str] = TASK_METRICS,
+    model_kind: str = "additive",
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Participant random-intercept models fitted by REML.
+
+    The primary additive model tests the three factors adjusted for one another.
+    The two-way sensitivity model tests only interactions (not reference-level
+    main effects). Each reported omnibus test is an asymptotic Wald chi-square
+    test. BH-FDR is applied across all metric-by-term tests in each returned
+    table, separately for the primary and sensitivity analyses.
+
+    The full factorial model is available for rank auditing only. There are
+    empty cells in the paper data, so its intended 27-parameter specification
+    cannot be identified. Never silently fit it with a generalized inverse.
+    """
+    if model_kind not in ("additive", "two_way"):
+        raise ValueError("Use additive or two_way; the full factorial is for auditing only.")
+    df = _strategy_analysis_rows(strategy_metrics)
+    metrics = list(metrics)
+    if not metrics or len(set(metrics)) != len(metrics):
+        raise ValueError("Supply a nonempty list of distinct task metrics.")
+    if not np.isfinite(df[metrics].to_numpy(dtype=float)).all():
+        raise ValueError("Strategy outcomes must be finite; missing outcomes require an explicit sample decision.")
+    tests, coefficients, diagnostics = [], [], []
     for metric in metrics:
-        model = smf.ols(
-            f"{metric} ~ C(classification_strategy) * C(decision_strategy) * C(test)", data=df
-        ).fit()
-        table = anova_lm(model, typ=2)
-        for term, term_row in table.iterrows():
-            rows.append(
-                {
-                    "metric": metric,
-                    "metric_label": METRIC_LABELS[metric],
-                    "term": term_labels.get(term, term),
-                    "df": term_row["df"],
-                    "sum_sq": term_row["sum_sq"],
-                    "F": term_row["F"],
-                    "p": term_row["PR(>F)"],
-                }
-            )
-    result = pd.DataFrame(rows)
-    result["significant"] = result["p"] < 0.05
-    return result
+        formula = f"{metric} ~ {STRATEGY_FORMULAS[model_kind]}"
+        model = smf.mixedlm(formula, df, groups=df["subject_id"], re_formula="1", missing="raise")
+        rank = np.linalg.matrix_rank(model.exog)
+        if rank != model.exog.shape[1]:
+            raise ValueError(f"{model_kind} design is rank deficient: rank {rank} / {model.exog.shape[1]}.")
+        with warnings.catch_warnings(record=True) as fit_warnings:
+            warnings.simplefilter("always")
+            result = model.fit(reml=True, method="bfgs", maxiter=1000)
+        if not result.converged or not np.isfinite(result.params).all():
+            raise RuntimeError(f"Strategy model did not converge for {metric} ({model_kind}).")
+        covariance = result.cov_params().loc[result.fe_params.index, result.fe_params.index].to_numpy()
+        if not np.isfinite(covariance).all() or np.linalg.eigvalsh(covariance).min() <= 0:
+            raise RuntimeError(f"Invalid fixed-effect covariance for {metric} ({model_kind}).")
+        metadata = {"model": model_kind, "metric": metric, "metric_label": METRIC_LABELS[metric]}
+        for term, term_slice in model.data.design_info.term_name_slices.items():
+            if term == "Intercept" or (model_kind == "two_way" and ":" not in term):
+                continue
+            # Include zeros for the variance parameter; test only fixed effects.
+            contrast = np.zeros((term_slice.stop - term_slice.start, len(result.params)))
+            contrast[:, term_slice] = np.eye(contrast.shape[0])
+            tested_covariance = contrast[:, :model.k_fe] @ covariance @ contrast[:, :model.k_fe].T
+            if np.linalg.matrix_rank(tested_covariance) != contrast.shape[0]:
+                raise RuntimeError(f"Nonestimable omnibus test for {metric}: {term}.")
+            test = result.wald_test(contrast, use_f=False, scalar=True)
+            tests.append({**metadata, "term": STRATEGY_TERM_LABELS[term],
+                          "df": contrast.shape[0], "chi2": float(test.statistic),
+                          "p": float(test.pvalue)})
+        ci = result.conf_int()
+        for term in result.fe_params.index:
+            coefficients.append({**metadata, "coefficient": term,
+                                 "estimate": result.fe_params[term], "se": result.bse_fe[term],
+                                 "ci95_low": ci.loc[term, 0], "ci95_high": ci.loc[term, 1]})
+        diagnostics.append({**metadata, "formula": formula, "fit_method": "REML", "optimizer": "bfgs",
+                            "n_rows": int(result.nobs), "n_subjects": df["subject_id"].nunique(),
+                            "rank": rank, "n_columns": model.exog.shape[1],
+                            "condition_number": np.linalg.cond(model.exog), "converged": result.converged,
+                            "random_intercept_variance": result.cov_re.iloc[0, 0],
+                            "residual_variance": result.scale,
+                            "random_to_residual_variance": result.cov_re.iloc[0, 0] / result.scale,
+                            "warnings": " | ".join(dict.fromkeys(str(w.message) for w in fit_warnings))})
+    tests = pd.DataFrame(tests)
+    tests["p_fdr_bh"] = multipletests(tests["p"], method="fdr_bh")[1]
+    tests["fdr_family_size"] = len(tests)
+    tests["significant_uncorrected"] = tests["p"] < 0.05
+    tests["significant_fdr_bh"] = tests["p_fdr_bh"] < 0.05
+    return tests, pd.DataFrame(coefficients), pd.DataFrame(diagnostics)
 
 
-def save_supplemental_table_1_pdf(anova_table: pd.DataFrame, path: str | Path, n_rows: int):
-    """Render the strategy ANOVA results as a single US-letter PDF page."""
+def save_supplemental_table_1_pdf(
+    model_table: pd.DataFrame, path: str | Path, n_rows: int, n_subjects: int,
+):
+    """Render the corrected primary strategy model tests on a letter page."""
     fig = plt.figure(figsize=LETTER_PORTRAIT)
-    ax = fig.add_axes([0.07, 0.055, 0.86, 0.795])
+    ax = fig.add_axes([0.07, 0.25, 0.86, 0.58])
     ax.axis("off")
 
     cell_rows = []
-    for metric_label, metric_df in anova_table.groupby("metric_label", sort=False):
+    for metric_label, metric_df in model_table.groupby("metric_label", sort=False):
         for i, (_, row) in enumerate(metric_df.iterrows()):
-            f_txt = "" if np.isnan(row["F"]) else f"{row['F']:.2f}"
-            p_txt = "" if np.isnan(row["p"]) else (f"{row['p']:.3f}" if row["p"] >= 0.001 else f"{row['p']:.1e}")
-            if p_txt and row["p"] < 0.05:
-                p_txt += " *"
+            # Four decimals avoid turning values such as .0495 into .050.
+            p_txt = f"{row['p']:.4f}" if row["p"] >= 0.0001 else f"{row['p']:.1e}"
+            q_txt = f"{row['p_fdr_bh']:.4f}" if row["p_fdr_bh"] >= 0.0001 else f"{row['p_fdr_bh']:.1e}"
             cell_rows.append(
-                [metric_label if i == 0 else "", row["term"], f"{row['df']:.0f}", f"{row['sum_sq']:.4f}", f_txt, p_txt]
+                [metric_label if i == 0 else "", row["term"], f"{row['df']:.0f}", f"{row['chi2']:.2f}", p_txt, q_txt]
             )
 
     table = ax.table(
         cellText=cell_rows,
-        colLabels=["Task metric", "Term", "df", "Sum sq", "F", "P"],
-        colWidths=[0.18, 0.34, 0.08, 0.15, 0.11, 0.14],
+        colLabels=["Task metric", "Term", "df", "Wald chi-square", "P", "BH-FDR P"],
+        colWidths=[0.19, 0.29, 0.05, 0.19, 0.14, 0.14],
         cellLoc="left",
         loc="upper center",
     )
     table.auto_set_font_size(False)
-    table.set_fontsize(7)
-    table.scale(1, 0.98)
+    table.set_fontsize(8)
+    table.scale(1, 1.65)
     for (row_i, _), cell in table.get_celld().items():
         cell.set_edgecolor("0.8")
         if row_i == 0:
@@ -805,17 +938,21 @@ def save_supplemental_table_1_pdf(anova_table: pd.DataFrame, path: str | Path, n
     fig.text(
         0.07,
         0.925,
-        "Strategy, test number, and task metrics. Type II ANOVA from OLS models fit separately for each\n"
-        "task metric, with self-reported classification strategy, decision strategy, test number, and all\n"
-        "interactions as categorical predictors.",
+        "Strategy associations adjusted for session. Separate linear mixed models for each task metric\n"
+        "include classification strategy, decision strategy, and session as additive categorical fixed effects\n"
+        "and a participant random intercept. Models were fitted using restricted maximum likelihood.",
         fontsize=9,
         va="top",
     )
     fig.text(
         0.07,
-        0.038,
-        f"N={n_rows} participant-sessions from the 80 completers. The single 'Wrote down' classification report\n"
-        "was excluded so the factorial design was estimable. * P < .05, uncorrected.",
+        0.18,
+        f"N={n_rows} participant-sessions from {n_subjects} completers; the singleton 'Wrote down' report was excluded.\n"
+        "All primary designs have rank 7 of 7. Tests are asymptotic Wald chi-square tests. P values are\n"
+        f"reported both unadjusted and with Benjamini-Hochberg correction across {len(model_table)} tests.\n\n"
+        "A separate sensitivity analysis includes all two-way interactions (rank 19 of 19). The original\n"
+        "three-way specification has rank 24 of 27 because three cells are empty; it is not used for inference.\n"
+        "Strategy associations are exploratory and do not establish causal effects.",
         fontsize=8,
         va="top",
         color="0.35",
