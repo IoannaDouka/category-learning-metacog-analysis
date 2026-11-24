@@ -8,7 +8,7 @@ This branch evaluates a retrospective analysis composite. It does not establish 
 
 - Local branch: `fix/reward-normalization`.
 - Starting point: the supplied `category-learning-metacog-analysis-main (2).zip` snapshot, previously identified with upstream revision `c893630d985484e0ffe517dcaabf9952d0e76a83`.
-- The archive contained no Git history. A local baseline commit was created from its contents; this is not a clone of the upstream history and nothing has been pushed to GitHub.
+- The initial analysis used an archive without Git history. For publication, the correction was applied to a fresh clone of the upstream repository at the revision above. The archive baseline and upstream tree were verified to be identical, and the correction applied without conflicts. This branch preserves the upstream Git history.
 - The same six raw CSV files, participants, confidence-key mapping, trial inclusion rules, statistical models, and comparison families were used in both runs.
 
 ## What was corrected
@@ -70,7 +70,7 @@ All 11 reward-related correlation coefficients in each sample were recomputed. T
 4. The other five task metrics were unchanged within absolute tolerance 1e-12. N=80 and N=51 sample definitions, testing-only feature-distance results, calibration change tests and power calculations were preserved.
 5. All strategy fits converged. Existing scale-related boundary warnings and power-approximation numerical warnings were retained in the logs; no execution failed. Model diagnostics, logs, package versions and input-file hashes are included.
 
-Nineteen of 30 CSV outputs were unchanged; 11 changed. Dependent figures and supplemental PDFs were regenerated. The original supplied files remain preserved outside this isolated branch and in its baseline commit.
+Nineteen of 30 CSV outputs were unchanged; 11 changed. Dependent figures and supplemental PDFs were regenerated. The original supplied files remain preserved in the upstream base revision and in the separate local analysis archive.
 
 ## Implications for the manuscript
 
@@ -100,4 +100,4 @@ python scripts/run_paper_notebook.py --repo . --data data --output paper_repro_o
 
 The comparison script accepts `--baseline`, `--corrected`, `--supplied`, `--data` and `--output` paths. The first three point to output roots containing `tables/`. It verifies the baseline against the supplied tables and independently checks corrected scores against the raw trials.
 
-The review package includes the complete local Git branch as a bundle, a small code-and-test patch for application to the upstream checkout, the corrected repository and all comparison results. The local branch's code can be reviewed with `git diff supplied-baseline..fix/reward-normalization -- analysisfunctions.py paper_analysis_utils.py tests/`.
+The branch includes the corrected code, regression tests, regenerated outputs, and comparison results. Review the code changes against the upstream base with `git diff c893630d985484e0ffe517dcaabf9952d0e76a83..HEAD -- analysisfunctions.py paper_analysis_utils.py tests/`. The validation results above describe the completed analysis runs; transferring the correction to the upstream Git history did not change the analytical code or result files.
